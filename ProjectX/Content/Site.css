@@ -1,6 +1,5 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    background-color: #222222;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -39,4 +38,27 @@ input[type="checkbox"].input-validation-error {
 
 .validation-summary-valid {
     display: none;
+}
+
+footer {
+    background-color: #222222;
+    width: 100%;
+    position:relative;
+    height:75px;
+}
+
+.customMainTop {
+    height: 75px;
+    position:relative;
+    margin:0;
+    padding-top:13px;
+}
+
+#bodyContent {
+    background-color: white;
+    max-width:none;
+    margin:0;
+    width:100%;
+    padding:0;
+    height:700px;
 }
