@@ -52,6 +52,7 @@ footer {
     position:relative;
     margin:0;
     padding-top:13px;
+    z-index:10;
 }
 
 #bodyContent {
@@ -67,6 +68,19 @@ footer {
     height:700px;
 }
 
-.gmnoprint {
-    
+#RenderBody{
+    padding:20px;
+    height:700px;
+    position:absolute;
+    z-index:9;
+    background-color:white;
+    width:100%;
+}
+
+#modal {
+    position:relative;
+    border:1px solid black;
+    max-width:900px;
+    margin:0 auto;
+    height:650px;
 }

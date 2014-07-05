@@ -1,7 +1,10 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-}
+﻿@Scripts.Render("~/Content/DescribePlace/Index.css")
 
-<h2>Index</h2>
+@Html.Partial("~/Views/DescribePlace/_DescribePlacePartial.cshtml")
+
+<div style="border:1px solid black;height:200px;">
+    @Html.Partial("~/Views/DescribePlace/_MulherometroPartial.cshtml")
+</div>
+
+@Html.Partial("~/Views/DescribePlace/_ListPostsPartial.cshtml")
 
