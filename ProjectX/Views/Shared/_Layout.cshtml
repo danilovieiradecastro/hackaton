@@ -8,11 +8,11 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 
     @Styles.Render("~/Content/css")
-    @Styles.Render("~/Content/Modal/modal.css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/Scripts/MapsCustom.js")
+    @Scripts.Render("~/Scripts/MainCustom.js")
     @RenderSection("scripts", required: false)
 
 </head>
@@ -32,8 +32,9 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Describe Place", "Index", "DescribePlace")</li>
-                    <li><a href="#divPost">Post</a></li>
+                    <li><a href="#" id="btnDescribePlace">Describe Place</a></li>
+                    @*<li>@Html.ActionLink("Describe Place", "Index", "DescribePlace")</li>*@
+                    <li>@Html.ActionLink("Posts", "Index", "Posts")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -42,10 +43,11 @@
 
 
     <div id="bodyContent" class="container body-content">
-        
-        
-                @RenderBody()
-            
+        @RenderBody()
+
+        <div id="ModalContent">
+        </div>
+        <div id="overlay"></div>
 
         <div id="Map" class="body-content"></div>
     </div>
