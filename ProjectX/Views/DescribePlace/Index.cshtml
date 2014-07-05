@@ -1,0 +1,14 @@
+﻿@Scripts.Render("~/Content/DescribePlace/Index.css")
+
+<div id="RenderBody">
+    <div id="modal">
+        @Html.Partial("~/Views/DescribePlace/_DescribePlacePartial.cshtml")
+
+        <div style="border:1px solid black;height:200px;">
+            @Html.Partial("~/Views/DescribePlace/_MulherometroPartial.cshtml")
+        </div>
+
+        @Html.Partial("~/Views/DescribePlace/_ListPostsPartial.cshtml")
+
+    </div>
+</div>

@@ -4,12 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/Modal/modal.css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/MapsCustom.js")
+    @RenderSection("scripts", required: false)
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top customMainTop">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -24,21 +32,25 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Describe Place", "Index", "DescribePlace")</li>
+                    <li><a href="#divPost">Post</a></li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+
+    <div id="bodyContent" class="container body-content">
+        
+        
+                @RenderBody()
+            
+
+        <div id="Map" class="body-content"></div>
+    </div>
+    <footer>
+        s
+    </footer>
 </body>
 </html>
