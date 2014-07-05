@@ -49,10 +49,10 @@ footer {
 
 .customMainTop {
     height: 75px;
-    position:relative;
+    position:fixed;
     margin:0;
     padding-top:13px;
-    z-index:2;
+    z-index:4;
 }
 
 #bodyContent {
@@ -88,6 +88,9 @@ footer {
 
 #ModalContent {
     z-index:15;
+    
+    margin-top:80px;
+    margin-bottom:-80px;
 }
 
 #overlay {
@@ -99,4 +102,9 @@ footer {
     bottom:0;
     background-color:rgba(0,0,0,0.5);
     z-index:5;
+}
+
+.modalPosts{
+    max-width:400px ! important;
+    height:300px ! important;
 }
