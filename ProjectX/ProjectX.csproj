@@ -195,6 +195,7 @@
     <Content Include="Images\pegavel.png" />
     <Content Include="Images\princesa.png" />
     <Content Include="Images\search.png" />
+    <Content Include="Images\tracker.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\ProjetoX.pubxml" />
@@ -211,6 +212,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Content\Smartslider\smartslider.css" />
+    <Content Include="Scripts\Smartslider\smartslider.js" />
+    <Content Include="Scripts\Smartslider\TrackBarCustom.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -242,6 +246,7 @@
     <Content Include="Views\DescribePlace\_DescribePlacePartial.cshtml" />
     <Content Include="Views\DescribePlace\_MulherometroPartial.cshtml" />
     <Content Include="Views\DescribePlace\_ListPostsPartial.cshtml" />
+    <Content Include="Views\Shared\_TrackBarQuality.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
