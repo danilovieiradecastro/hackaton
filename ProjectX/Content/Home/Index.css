@@ -1,0 +1,32 @@
+﻿#txtSearch {
+    border: 1px solid #4d90fe;
+    height:30px;
+    text-indent:10px;
+    font-size:18px;
+    font-weight:100;
+    font-family: monospace;
+    box-shadow:0 0 2px 0 #4d90fe;
+
+    position:absolute;
+    width:200px;
+    top: 106px;
+    left: 80px;
+    z-index:2;
+}
+
+#btnSearch {
+    width:80px;
+    height:30px;
+    background-color: #4d90fe;
+    box-shadow:0 0 3px 0 #4d90fe;
+    background-image: url(/Images/search.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size:20px;
+    
+
+    position: absolute;
+    top: 106px;
+    left: 280px;
+    z-index:2;
+}
