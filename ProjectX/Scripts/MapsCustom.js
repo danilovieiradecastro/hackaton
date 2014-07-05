@@ -3,9 +3,10 @@
     var map;
     function initialize() {
         var mapOptions = {
-            zoom: 15,
-            center: new google.maps.LatLng(-34.397, 150.644)
+            zoom: 50,
+            center: new google.maps.LatLng(-21.763114, -43.353142)
         };
+        var bounds = new google.maps.LatLngBounds();
         map = new google.maps.Map(document.getElementById('Map'), mapOptions);
         // Try HTML5 geolocation
         if(navigator.geolocation) {
@@ -18,7 +19,10 @@
                     content: 'Location found using HTML5.'
                 });
 
+                //map.setCenter(pos);
+                //map.zoom(50);
                 map.setCenter(pos);
+                map.setZoom(70);
             }, function() {
                 handleNoGeolocation(true);
             });
@@ -27,20 +31,7 @@
             // Browser doesn't support Geolocation
             handleNoGeolocation(false);
         }
-
-        //google.maps.event.addListener(map, "tilesloaded", function () {
-        //    teste = $(".gm-style > div");
-            
-        //    $(teste[7]).css("top","50px");
-            
-            
-            
-        //});
-
     }
 
     google.maps.event.addDomListener(window, 'load', initialize);
-
-    
-
 });
