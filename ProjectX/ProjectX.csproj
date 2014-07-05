@@ -182,6 +182,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\bonita.png" />
+    <Content Include="Images\capeta.png" />
+    <Content Include="Images\pega bebado.png" />
+    <Content Include="Images\pegavel.png" />
+    <Content Include="Images\princesa.png" />
     <Content Include="Images\search.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
