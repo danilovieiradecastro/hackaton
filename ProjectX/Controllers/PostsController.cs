@@ -14,5 +14,11 @@ namespace ProjectX.Controllers
         {
             return View();
         }
+
+        public ActionResult RetornarViewAjax()
+        {
+            return PartialView("/Views/Posts/Index.cshtml");
+        }
+
 	}
 }

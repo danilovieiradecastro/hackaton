@@ -1,0 +1,18 @@
+﻿@Styles.Render("~/Content/DescribePlace/Index.css")
+@Scripts.Render("~/Plugins/Raty/lib/jquery.raty.js")
+@Scripts.Render("~/Scripts/DescribePlace/Index.js")
+
+<div id="RenderBody">
+    <div id="modal">
+
+        <div id="divDescribePlacePartial">
+            @Html.Partial("~/Views/DescribePlace/_DescribePlacePartial.cshtml")
+        </div>
+        <div style="border:1px solid black;height:200px;">
+            @Html.Partial("~/Views/DescribePlace/_MulherometroPartial.cshtml")
+        </div>
+
+        @Html.Partial("~/Views/DescribePlace/_ListPostsPartial.cshtml")
+        <button id="close" onclick="closeModal()">Close</button>
+    </div>
+</div>

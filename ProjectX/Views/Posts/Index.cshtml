@@ -1,8 +1,11 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-}
+﻿@Scripts.Render("~/Content/DescribePlace/Index.css")
 
-<h2>Index</h2>
+<div id="RenderBody">
+    <div id="modal">
 
-<a href="#" class="btn">Close</a>
+
+        @Html.Partial("~/Views/Shared/_TrackBarQUality.cshtml")
+        <button id="close" onclick="closeModal()">Close</button>
+
+    </div>
+</div>

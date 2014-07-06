@@ -15,5 +15,6 @@ namespace ProjectX.Models
         public string EmailUsuario { get; set; }
         public bool IsAnonimo { get; set; }
         public virtual LocalSet LocalSet { get; set; }
+        public virtual byte[] Foto { get; set; }
     }
 }
