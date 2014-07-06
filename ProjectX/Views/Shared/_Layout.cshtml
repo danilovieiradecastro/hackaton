@@ -64,81 +64,127 @@
     }
 
     <script type="text/javascript">
-        var teste;
-        var map;
+    var teste;
+    var map;
 
-        function initialize() {
-            var latlng = new google.maps.LatLng(-21.7669294, -43.353678);
+    function initialize() {
+        var latlng = new google.maps.LatLng(-21.7669294, -43.353678);
 
-            var options = {
-                zoom: 15,
-                center: latlng,
-                mapTypeId: google.maps.MapTypeId.TERRAIN
-            };
+        var options = {
+            zoom: 15,
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.TERRAIN
+        };
 
-            map = new google.maps.Map(document.getElementById("Map"), options);
+        map = new google.maps.Map(document.getElementById("Map"), options);
+    }
+
+    initialize();
+
+    function carregarPontos() {
+        var markers  = [];
+
+        //if (navigator.geolocation) {
+        //    navigator.geolocation.getCurrentPosition(success, error);
+        //} else {
+        //    alert('location not supported');
+        //}
+
+        //function error(msg) {
+
+        //}
+
+        //function success(position) {
+        //    var lats = position.coords.latitude;
+        //    var lngs = position.coords.longitude;
+        //    alert(lats);
+        //    alert(lngs);
+        //    var marker = new google.maps.Marker({
+        //        position: new google.maps.LatLng(lats,lngs),
+        //        title: "Eu",
+        //        icon: "/Images/homipequeno.png"
+        //    });
+        //    markers.push(marker);
+        //};
+
+        // Try HTML5 geolocation
+        if(navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+                var infowindow = new google.maps.InfoWindow({
+                    map: map,
+                    position: pos,
+                    content: 'Localização atual'
+                });
+
+                //map.setCenter(pos);
+                //map.zoom(50);
+                //map.setCenter(pos);
+            }, function() {
+                handleNoGeolocation(true);
+            });
+
+        } else {
+            // Browser doesn't support Geolocation
+            handleNoGeolocation(false);
         }
 
-        initialize();
-
-        function carregarPontos() {
-            var markers  = [];
-    
-                @foreach (var place in Model) {
+        @foreach (var place in Model) {
                 <text>
 
-            var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(@place.Lat,@place.Lon),
-                title: "@System.Web.HttpUtility.HtmlDecode(place.Name)",
-                icon: "@place.Img"
-            });
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(@place.Lat,@place.Lon),
+            title: "@System.Web.HttpUtility.HtmlDecode(place.Name)",
+            icon: "@place.Img"
+        });
 
-            google.maps.event.addListener(marker, 'click', function() {
-                
-                var classe = "";
-                $.post("/DescribePlace/RetornarViewAjax", { Id : @place.Id })
-                        .done(function (data) {
-                            $("#overlay").show();
-                            $("#ModalContent").html(data);
-                            $("#modal").addClass(classe);
-                            $("body").css("overflow", "hidden");
-                            responsive();
-                        });
-                return false;
-                
+        google.maps.event.addListener(marker, 'click', function() {
 
-            });
+            var classe = "";
+            $.post("/DescribePlace/RetornarViewAjax", { Id : @place.Id })
+                    .done(function (data) {
+                        $("#overlay").show();
+                        $("#ModalContent").html(data);
+                        $("#modal").addClass(classe);
+                        $("body").css("overflow", "hidden");
+                        responsive();
+                    });
+            return false;
 
-            markers.push(marker);
 
-            </text>
+        });
+
+        markers.push(marker);
+
+        </text>
             }
-            var markerCluster = new MarkerClusterer(map, markers);
-            
+        var markerCluster = new MarkerClusterer(map, markers);
+
+    }
+
+    carregarPontos();
+    function responsive() {
+        var wdt = $(document).width();
+        if (wdt < 500) {
+            $("#Legenda").hide();
+            $("#txtDesc").attr("id", "txtDescResponsivo");
+            $("#ddPlace").attr("id", "ddPlaceResponsivo");
+            $("#divTrackQuantity").attr("id", "divTrackQuantityResponsive");
+            $("#divTrackQuality").attr("id", "divTrackQualityResponsive");
+
+            $(".modalPosts").addClass("modalPostsResponsive");
+        } else {
+            $("#Legenda").show();
+            $("#txtDescResponsivo").attr("id", "txtDesc");
+            $("#ddPlaceResponsivo").attr("id", "ddPlace");
+            $("#divTrackQuantityResponsive").attr("id", "divTrackQuantity");
+            $("#divTrackQualityResponsive").attr("id", "divTrackQuality");
+
+            $(".modalPostsResponsive").removeClass("modalPostsResponsive");
         }
-
-        carregarPontos();
-        function responsive() {
-            var wdt = $(document).width();
-            if (wdt < 500) {
-                $("#Legenda").hide();
-                $("#txtDesc").attr("id", "txtDescResponsivo");
-                $("#ddPlace").attr("id", "ddPlaceResponsivo");
-                $("#divTrackQuantity").attr("id", "divTrackQuantityResponsive");
-                $("#divTrackQuality").attr("id", "divTrackQualityResponsive");
-
-                $(".modalPosts").addClass("modalPostsResponsive");
-            } else {
-                $("#Legenda").show();
-                $("#txtDescResponsivo").attr("id", "txtDesc");
-                $("#ddPlaceResponsivo").attr("id", "ddPlace");
-                $("#divTrackQuantityResponsive").attr("id", "divTrackQuantity");
-                $("#divTrackQualityResponsive").attr("id", "divTrackQuality");
-
-                $(".modalPostsResponsive").removeClass("modalPostsResponsive");
-            }
-        }
-    </script>
+    }
+</script>
     @Scripts.Render("~/Scripts/bootstrap-modalmanager.js");
     @Scripts.Render("~/Scripts/bootstrap-modal.js");
 
