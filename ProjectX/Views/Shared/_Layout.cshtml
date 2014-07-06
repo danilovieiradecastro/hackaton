@@ -15,9 +15,10 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/jquery-ui.css")
+    @Scripts.Render("~/Scripts/jquery-ui.js")
     @*    @Scripts.Render("~/Scripts/MapsCustom.js")*@
     @Scripts.Render("~/Scripts/MainCustom.js")
-
     @RenderSection("scripts", required: false)
 </head>
 <body>
@@ -62,51 +63,9 @@
     <footer style="padding:10px;">
         <button type="button" class="btn btn-default btn-sm">Enviar Post</button>
     </footer>
-
-    <script type="text/javascript">
-        var teste;
-        var map;
-
-        function initialize() {	
-            var latlng = new google.maps.LatLng(-21.7669294, -43.353678);
-	
-            var options = {
-                zoom: 15,
-                center: latlng,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-
-            map = new google.maps.Map(document.getElementById("Map"), options);
-        }
-
-        initialize();
-
-        function carregarPontos() {
-            
-            @foreach (var place in Model) {
-                <text>
-
-                var marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(@place.Lat,@place.Lon),                    
-                    title: "@place.Name",
-                    map: map
-                });
-
-                google.maps.event.addListener(marker, 'click', function() {
-                    alert('oi');
-                    map.setCenter(marker.getPosition());
-                });
-
-                </text>
-            }
-        }
-
-        carregarPontos();
-
-
-
-    </script>
-
+    @Styles.Render("~/Content/powerange.min.css")
+    @Scripts.Render("~/Scripts/powerange.min.js")
+    @Scripts.Render("~/Scripts/trackBarQuality.js")
 
 </body>
 </html>
