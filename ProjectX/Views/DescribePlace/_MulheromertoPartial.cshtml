@@ -23,7 +23,7 @@
             var base64 = Convert.ToBase64String(item.Foto);
             imgSrc = String.Format("data:image/gif;base64,{0}", base64);
 
-            <img class="imgPreview" id="imgPreview-@item.Id" src="@imgSrc" style="height: 75px; cursor: pointer" />
+            <img class="imgPreview" id="imgPreview-@item.Id" src="@imgSrc" style="height: 75px; cursor: pointer; margin: 5px;" />
         }
     }
 </div>
