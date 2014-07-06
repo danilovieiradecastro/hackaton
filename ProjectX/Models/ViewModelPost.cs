@@ -7,6 +7,7 @@ namespace ProjectX.Models
 {
     public class ViewModelPost
     {
+        public List<PostSet> Posts { get; set; }
         public IEnumerable<LocalSet> ListaBaladas { get; set; }
         public PostSet post { get; set; }
         public LocalSet BaladaSelecionada;
