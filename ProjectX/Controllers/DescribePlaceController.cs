@@ -1,4 +1,5 @@
-﻿using ProjectX.Models;
+﻿using ProjectX.Business.GooglePlacesAPI;
+using ProjectX.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,8 +23,19 @@ namespace ProjectX.Controllers
             int id = Convert.ToInt32(Id);
             using (var db = new EsquentaContainerContext())
             {
-                model.ListaBaladas = db.LocalSets.Where(x => x.Id == id).ToList();
+                model.BaladaSelecionada = db.LocalSets.Where(x => x.Id == id).FirstOrDefault();
             }
+
+            GooglePlacesAPI api = new GooglePlacesAPI();
+            var placeDetail = api.GetPlaceDetail(model.BaladaSelecionada.GoogleReference);
+
+            model.Site = placeDetail.result.website;
+            model.Telefone = placeDetail.result.formatted_phone_number;
+            model.Endereco = placeDetail.result.formatted_address;
+            model.Rating = placeDetail.result.rating;
+            model.Name = placeDetail.result.name;
+
+
             return PartialView("/Views/DescribePlace/Index.cshtml", model);
         }
 	}

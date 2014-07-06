@@ -1,13 +1,51 @@
-﻿<img id="imgPlace" src="/images/noimage.jpg" />
+﻿@model ProjectX.Models.ViewModelPost
 
-<div id="txtPlaceName">Bar do Bigode</div>
+@*<img id="imgPlace" src="/images/noimage.jpg" />*@
+
+<div id="txtPlaceName">@Model.Name</div>
 
 <div id="divRatio">
     <div id="ratio"></div>
     <span id="ratioValue"></span>
 </div>
 
-<div id="divComent">
+@*<div id="divComent">
     <img id="imgComent" src="/images/baloon.png" />
     <span id="comentTitle">Comentários</span>
-</div>
+</div>*@
+
+@if ((Model.Endereco != null) && (Model.Endereco != ""))
+{
+    <div id="divEndereco">
+        <div id="Endereco">@Model.Endereco</div>
+    </div>
+}
+
+@if ((Model.Telefone != null) && (Model.Telefone != ""))
+{
+    <div id="divTelefone">
+        <div id="Telefone">@Model.Telefone</div>
+    </div>
+}
+
+@if ((Model.Site != null) && (Model.Site != ""))
+{
+    <div id="divWebSite">
+        
+        <div id="WebSite"><a href="@Model.Site" target="_blank">@Model.Site</a></div>
+    </div>
+}
+<script>
+    
+
+    $(document).ready(function () {
+
+        var ratioValue = '(@Model.Rating)';
+
+        $.fn.raty.defaults.path = '/Plugins/Raty/lib/images';
+        $('#ratio').raty({ score: ratioValue, readOnly: true });
+
+        $("#ratioValue").text(ratioValue);       
+
+    });
+</script>
