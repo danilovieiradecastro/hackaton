@@ -1,10 +1,25 @@
-﻿@Scripts.Render("~/Content/DescribePlace/Index.css")
+﻿@model ProjectX.Models.ViewModelPost
+@Scripts.Render("~/Content/DescribePlace/Index.css")
 
 <div id="RenderBody">
     <div id="modal">
 
 
         @Html.Partial("~/Views/Shared/_TrackBarQUality.cshtml")
+        @using (Html.BeginForm("CriarPost", "Posts", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+         @Html.DropDownList("ListaBar", new SelectList(Model.ListaBaladas, "Id", "Nome"))
+            
+            <div class="control-group">
+                Staff Photo:
+                <div class="controls">
+               
+                    <input type="file" id="staffImage" name="staffImage" data-provide="fileinput" accept="image/*;capture=camera">
+                </div>
+            </div>
+             @Html.ValidationMessageFor(model => model.BaladaSelecionada)
+               <input type="submit" class="btn btn-default" value="Register" />
+        }
         <button id="close" onclick="closeModal()">Close</button>
 
     </div>
