@@ -12,5 +12,14 @@ namespace ProjectX.Models
         public PostSet post { get; set; }
         public LocalSet BaladaSelecionada;
         public bool isBaladaSelecionada { get; set; }
+
+        public string Site { get; set; }
+        public string Telefone { get; set; }
+
+        public string Endereco { get; set; }
+
+        public double Rating { get; set; }
+
+        public string Name { get; set; }    
     }
 }
