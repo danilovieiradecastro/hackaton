@@ -22,9 +22,12 @@
 }
 
 #txtDesc {
+    padding:2px;
+    background-color:white;
+    border: 1px solid rgba(0,0,0,0.3);
     resize:none;
-    width:434px;
-    max-width:434px ! important;
+    width:365px;
+    max-width:370px ! important;
     height:70px;
     
 }
@@ -37,10 +40,13 @@
 #linkAnexar {
     position:absolute;
     bottom:20px;
-    text-decoration:underline;
 }
 
 #ddPlace {
     width:434px ! important;
     max-width:434px ! important;
+}
+
+#hdnImage {
+    display:none;
 }

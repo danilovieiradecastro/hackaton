@@ -15,72 +15,97 @@ namespace ProjectX.Controllers
         // GET: /Posts/
         public ActionResult Index()
         {
-          ViewModelPost model = new ViewModelPost();
-          using (var db = new EsquentaContainerContext())
-          {
-            model.ListaBaladas = db.LocalSets.ToArray();
-          }
+            ViewModelPost model = new ViewModelPost();
+            using (var db = new EsquentaContainerContext())
+            {
+                model.ListaBaladas = db.LocalSets.ToArray();
+            }
             return View(model);
         }
 
         public ActionResult RetornarViewAjax()
         {
-            return PartialView("/Views/Posts/Index.cshtml");
-        }
-      [HttpGet]
-      public ActionResult CriarPost()
-        {
-          return View();
-        }
-      [HttpPost]
-      public ActionResult CriarPost(FormCollection model)
-      {
-        var result = Request.Files["staffImage"];
-       MemoryStream memoryStream = new MemoryStream();
-        Stream st = result.InputStream;
-        st.CopyTo(memoryStream);
-        var selec = model["ListaBar"];
-        using (var db = new EsquentaContainerContext())
-        {
-          
-
-          var user = db.UserSets.Where(ae => ae.Email == "c0r3ylnx@gmail.com" ).First();
-          db.PostSets.Add(new PostSet
+            ViewModelPost model = new ViewModelPost();
+            using (var db = new EsquentaContainerContext())
             {
-              IsAnonimo = false,
-              Beleza = 100,
-              Data = System.DateTime.Now,
-              Descricao = "teste de descricao",
-              Quantidade = 100,
-              Votos = 0,
-              User_id = user.Id,
-              UserSet = user,
-              Foto = memoryStream.ToArray(),
-              Local_Id = Convert.ToInt32(selec)
-            });
-          try
-          {
-            db.SaveChanges();
-          }
-          catch (DbEntityValidationException e)
-{
-    foreach (var eve in e.EntityValidationErrors)
-    {
-        Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
-            eve.Entry.Entity.GetType().Name, eve.Entry.State);
-        foreach (var ve in eve.ValidationErrors)
+                model.ListaBaladas = db.LocalSets.ToArray();
+            }
+            model.isBaladaSelecionada = false;
+            return PartialView("/Views/Posts/Index.cshtml", model);
+        }
+
+        public ActionResult RetornarViewAjaxLocalSelecionado(string Id)
         {
-            Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
-                ve.PropertyName, ve.ErrorMessage);
+            ViewModelPost model = new ViewModelPost();
+            int id = Convert.ToInt32(Id);
+            using (var db = new EsquentaContainerContext())
+            {
+                model.ListaBaladas = db.LocalSets.Where(x => x.Id == id).ToList();
+            }
+            model.isBaladaSelecionada = true;
+            return PartialView("/Views/Posts/Index.cshtml", model);
         }
+
+        [HttpGet]
+        public ActionResult CriarPost()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CriarPost(FormCollection model)
+        {
+            var result = Request.Files["hdnImage"];
+            MemoryStream memoryStream = new MemoryStream();
+            Stream st = result != null ? result.InputStream : null;
+            if(st != null)
+                st.CopyTo(memoryStream);
+
+            var selec = model["hdnLocal"];
+            string anonimo = model["hdnAnonimo"];
+            string desc = model["hdnDescricao"];
+            string qtd = model["hdnQtd"];
+            string qld = model["hdnQld"];
+
+            using (var db = new EsquentaContainerContext())
+            {
+
+
+                var user = db.UserSets.Where(ae => ae.Email == "c0r3ylnx@gmail.com").First();
+                db.PostSets.Add(new PostSet
+                {
+                    IsAnonimo = Convert.ToBoolean(anonimo),
+                    Beleza = Convert.ToInt32(qld),
+                    Data = System.DateTime.Now,
+                    Descricao = desc,
+                    Quantidade = Convert.ToInt32(qtd),
+                    Votos = 0,
+                    User_id = user.Id,
+                    UserSet = user,
+                    Foto = memoryStream.ToArray(),
+                    Local_Id = Convert.ToInt32(selec)
+                });
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException e)
+                {
+                    foreach (var eve in e.EntityValidationErrors)
+                    {
+                        Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                            eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                        foreach (var ve in eve.ValidationErrors)
+                        {
+                            Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                                ve.PropertyName, ve.ErrorMessage);
+                        }
+                    }
+                    throw;
+                }
+            }
+            return RedirectToAction("Index","Home");
+        }
+
     }
-    throw;
-}
-        }
-        return View();
-      }
-
-
-
-	}
 }
