@@ -236,6 +236,7 @@
     <Content Include="Images\faces\60.png" />
     <Content Include="Images\faces\40.png" />
     <Content Include="Images\faces\100.png" />
+    <Content Include="Images\faces\faceUn.png" />
     <Content Include="Images\noimage.jpg" />
     <Content Include="Images\search.png" />
     <Content Include="Images\tracker.png" />
