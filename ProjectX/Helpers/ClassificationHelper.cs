@@ -33,7 +33,7 @@ namespace ProjectX.Helpers
             dic.Add(60, Math.Abs(((int)avg) - 60));
             dic.Add(80, Math.Abs(((int)avg) - 80));
             dic.Add(100, Math.Abs(((int)avg) - 100));
-
+                
             var min = dic.Min(i => i.Value);
             //int value = 1;
 
