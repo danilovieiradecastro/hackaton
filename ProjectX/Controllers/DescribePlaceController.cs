@@ -1,4 +1,5 @@
 ﻿using ProjectX.Business.GooglePlacesAPI;
+using ProjectX.Helpers;
 using ProjectX.Models;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,22 @@ namespace ProjectX.Controllers
             using (var db = new EsquentaContainerContext())
             {
                 model.BaladaSelecionada = db.LocalSets.Where(x => x.Id == id).FirstOrDefault();
+                var time =  DateTime.Now.AddMinutes(-90);
+
+                model.Posts = db.PostSets.Include("UserSet").AsEnumerable()
+                                         //.Where(i => i.Data > time && i.Local_Id == id)
+                                          .Where(i => i.Local_Id == id)
+                                         .Select(i => new ViewModelPostDetail()
+                                                        {
+                                                            Id = i.Id,
+                                                            Descricao = i.Descricao,
+                                                            Data = i.Data,
+                                                            IsAnonimo = i.IsAnonimo,
+                                                            UserName = i.UserSet.Nome,
+                                                            ClassificationImg = ClassificationHelper.ReturnQuantidadeRoundAvg((decimal)i.Beleza).ToString() + "_" +
+                                                                                ClassificationHelper.ReturnBelezaRoundAvg((decimal)i.Quantidade) + ".png"
+
+                                                        }).ToList();
             }
 
             GooglePlacesAPI api = new GooglePlacesAPI();
@@ -34,6 +51,8 @@ namespace ProjectX.Controllers
             model.Endereco = placeDetail.result.formatted_address;
             model.Rating = placeDetail.result.rating;
             model.Name = placeDetail.result.name;
+
+            
 
 
             return PartialView("/Views/DescribePlace/Index.cshtml", model);

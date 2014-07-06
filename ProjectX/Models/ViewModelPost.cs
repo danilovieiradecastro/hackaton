@@ -5,9 +5,20 @@ using System.Web;
 
 namespace ProjectX.Models
 {
+    public class ViewModelPostDetail
+    {
+        public int Id { get; set; }
+        public string Descricao { get; set; }
+        public string ClassificationImg { get; set; }
+        public System.DateTime Data { get; set; }
+        public string UserName { get; set; }
+        public bool IsAnonimo { get; set; }
+        public virtual byte[] Foto { get; set; }
+    }
+
     public class ViewModelPost
     {
-        public List<PostSet> Posts { get; set; }
+        public List<ViewModelPostDetail> Posts { get; set; }
         public IEnumerable<LocalSet> ListaBaladas { get; set; }
         public PostSet post { get; set; }
         public LocalSet BaladaSelecionada;

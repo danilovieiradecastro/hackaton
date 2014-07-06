@@ -31,13 +31,11 @@
 @if ((Model.Site != null) && (Model.Site != ""))
 {
     <div id="divWebSite">
-        
         <div id="WebSite"><a href="@Model.Site" target="_blank">@Model.Site</a></div>
     </div>
 }
 <script>
-    
-
+   
     $(document).ready(function () {
 
         var ratioValue = '(@Model.Rating)';
