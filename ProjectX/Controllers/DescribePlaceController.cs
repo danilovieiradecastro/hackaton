@@ -40,7 +40,8 @@ namespace ProjectX.Controllers
                                                             ClassificationImg = ClassificationHelper.ReturnQuantidadeRoundAvg((decimal)i.Beleza).ToString() + "_" +
                                                                                 ClassificationHelper.ReturnBelezaRoundAvg((decimal)i.Quantidade) + ".png",
                                                             Qualidade = i.Beleza,
-                                                            Quantidade = i.Quantidade
+                                                            Quantidade = i.Quantidade,
+                                                            Foto = i.Foto
                                                         }).ToList();
                 model.Qualidade = 20;
                 model.Quantidade = 20;
