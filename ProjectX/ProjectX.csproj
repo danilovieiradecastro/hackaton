@@ -231,6 +231,11 @@
     <Content Include="Images\5_pegoBebado.png" />
     <Content Include="Images\5_princesa.png" />
     <Content Include="Images\baloon.png" />
+    <Content Include="Images\faces\80.png" />
+    <Content Include="Images\faces\20.png" />
+    <Content Include="Images\faces\60.png" />
+    <Content Include="Images\faces\40.png" />
+    <Content Include="Images\faces\100.png" />
     <Content Include="Images\noimage.jpg" />
     <Content Include="Images\search.png" />
     <Content Include="Images\tracker.png" />
@@ -295,7 +300,7 @@
     <Content Include="Views\DescribePlace\_DescribePlacePartial.cshtml" />
     <Content Include="Views\Shared\_TrackBarQuality.cshtml" />
     <Content Include="Views\DescribePlace\_ListPostsPartial.cshtml" />
-    <Content Include="Views\DescribePlace\Partial1.cshtml" />
+    <Content Include="Views\DescribePlace\_MulheromertoPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
