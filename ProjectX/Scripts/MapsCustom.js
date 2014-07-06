@@ -3,7 +3,7 @@
     var map;
     function initialize() {
         var mapOptions = {
-            zoom: 50,
+            zoom: 15,
             center: new google.maps.LatLng(-21.763114, -43.353142)
         };
         var bounds = new google.maps.LatLngBounds();
@@ -22,7 +22,6 @@
                 //map.setCenter(pos);
                 //map.zoom(50);
                 map.setCenter(pos);
-                map.setZoom(70);
             }, function() {
                 handleNoGeolocation(true);
             });

@@ -1,1 +1,51 @@
-﻿
+﻿#divDescribePlacePartial {
+    padding:20px;
+    height:30%;
+}
+
+#imgPlace {
+    position:absolute;
+    width: 150px;
+    box-shadow:0 0 5px 0 black;
+}
+
+#txtPlaceName {
+    position: relative;
+    max-width:680px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: 170px;
+}
+
+#divRatio {
+    width:200px;
+    margin-left:160px;
+}
+
+#ratioValue {
+    font-size:18px;
+    font-weight:bold;
+    margin-left:50px;
+}
+
+#ratio img{
+    width:25px;
+}
+
+
+#imgComent {
+    width:30px;
+    margin-top:-10px;
+}
+
+#divComent {
+    margin-left:160px;
+}
+
+#comentTitle {
+    font-size:18px;
+    font-weight:bold;
+
+}
