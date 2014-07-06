@@ -236,6 +236,7 @@
     <Content Include="Images\5_pegoBebado.png" />
     <Content Include="Images\5_princesa.png" />
     <Content Include="Images\baloon.png" />
+    <Content Include="Images\close.png" />
     <Content Include="Images\faces\40.png" />
     <Content Include="Images\faces\80.png" />
     <Content Include="Images\faces\20.png" />

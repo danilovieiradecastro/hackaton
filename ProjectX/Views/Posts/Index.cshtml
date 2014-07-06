@@ -1,23 +1,40 @@
-﻿@Styles.Render("~/Content/Posts/Index.css")
+﻿@model ProjectX.Models.ViewModelPost
+@Styles.Render("~/Content/Posts/Index.css")
 @Scripts.Render("~/Scripts/Posts/Index.js")
 
 <div id="RenderBody">
     <div id="modal">
 
         <div id="divAnonimo">
-            <input type="checkbox" id="cbAnonimo" /> <label id="txtAnonino"> Anônimo</label>
+            @Html.CheckBox("cbAnonimo", false) <label id="txtAnonino"> Anônimo</label>
         </div>
 
         <div id="divDesc">
             <label id="titleDesc">Descrição</label><br />
-            <textarea id="txtDesc"></textarea>
-        </div>
+            <div contenteditable="true" id="txtDesc">
+                
+            </div>
+            <div  id="DivImgPreview">
+                <img id="closeImgPreview" src="/Images/close.png" />
+                <img id="imgPreview" src="#" />
+            </div>
+            </div>
         <br />
-        <div id="divPlace">
-            <label id="titleDesc">Local</label><br />
-            @Html.DropDownList("ddPlace", new SelectList("", "Value", "Text"), null, new { id = "ddPlace" })
-        </div>
-        
+        @if (!Model.isBaladaSelecionada)
+        {
+            <div id="divPlace">
+                <label id="titleDesc">Local</label><br />
+                @Html.DropDownList("ddPlace", new SelectList(Model.ListaBaladas, "Id", "Nome"), null, new { id = "ddPlace" })
+            </div>
+        }
+        else
+        {
+            <div id="divPlace" style="display:none">
+                <label id="titleDesc">Local</label><br />
+                @Html.DropDownList("ddPlace", new SelectList(Model.ListaBaladas, "Id", "Nome"), null, new { id = "ddPlace" })
+            </div>
+        }
+
         <div id="divTrackQuality">
             @Html.Partial("~/Views/Shared/_TrackBarQuality.cshtml")
         </div>
@@ -25,22 +42,22 @@
             @Html.Partial("~/Views/Shared/_TrackBarQuantity.cshtml")
         </div>
 
-        @Html.BeginForm("Teste", "Home", new { nomeparametro = "valor" })
+        @using (Html.BeginForm("CriarPost", "Posts", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
-        <input type="hidden" name="hdnAnonimo" id="hdnAnonimo" />
-        <input type="hidden" name="hdnDescricao" id="hdnDescricao" />
-        <input type="hidden" name="hdnLocal" id="hdnLocal" />
-        <input type="hidden" name="hdnQtd" id="hdnQtd" />
-        <input type="hidden" name="hdnQld" id="hdnQld" />
-        <button type="submit" id="hdnPostar" style="display:none;"></button>
+            <input type="hidden" name="hdnAnonimo" id="hdnAnonimo" />
+            <input type="hidden" name="hdnDescricao" id="hdnDescricao" />
+            <input type="hidden" name="hdnLocal" id="hdnLocal" />
+            <input type="hidden" name="hdnQtd" id="hdnQtd" />
+            <input type="hidden" name="hdnQld" id="hdnQld" />
+            <input type="file" name="hdnImage" id="hdnImage" data-provide="fileinput" accept="image/*;capture=camera" />
+            <button type="submit" id="hdnPostar" style="display:none;"></button>
 
-        <div class="btns">
-            <button id="btnPostar" class="btn btn-success">Postar</button>
-            <button id="close" class="btn" onclick="closeModal()">Close</button>
-        </div>
+            <div class="btns">
+                <button id="btnPostar" class="btn btn-success">Postar</button>
+                <button type="button" id="close" class="btn" onclick="closeModal()">Close</button>
+            </div>
         }
-
-        <a href="#" id="linkAnexar">Anexar</a>
+        <button id="linkAnexar" class="btn btn-danger">Anexar</button>
 
     </div>
 </div>

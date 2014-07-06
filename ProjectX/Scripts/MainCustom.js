@@ -31,4 +31,5 @@ function closeModal() {
     $("#overlay").hide();
     $("#ModalContent").html("");
     $("body").css("overflow", "hidden");
+    return false;
 }

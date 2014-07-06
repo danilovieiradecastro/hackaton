@@ -111,3 +111,39 @@ footer {
     border-radius:10px;
     border:0;
 }
+
+#btnPosts {
+    width:200px;
+    height:40px;
+    font-weight:bold;
+    font-size:18px;
+}
+
+#imgPreview {
+    
+    display:none;
+    width:70px;
+    height:70px;
+}
+
+#DivImgPreview {
+    width: 70px;
+    position: absolute;
+    top: 40px;
+    right: 35px;
+    height: 70px;
+}
+
+#DivImgPreview:active{
+    border:0;
+}
+
+#closeImgPreview {
+    display:none;
+    width: 40px;
+    position: absolute;
+    right: 14px;
+    top: 16px;
+    z-index: 15;
+    cursor: pointer;
+}

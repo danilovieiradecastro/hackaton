@@ -87,7 +87,7 @@ namespace ProjectX.Controllers
             return View();
         }
 
-        public ActionResult Teste()
+        public ActionResult CriarPost()
         {
             string anonimo = Request["hdnAnonimo"];
             string desc = Request["hdnDescricao"];
