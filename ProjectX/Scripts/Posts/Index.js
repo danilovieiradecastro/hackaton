@@ -6,10 +6,7 @@
         $("#hdnAnonimo").val($("#cbAnonimo").val());
         $("#hdnDescricao").val($("#txtDesc").val());
         $("#hdnLocal").val($("#ddPlace").val());
-
         $("#hdnPostar").trigger("click");
-
-        
     });
 
     $("#linkAnexar").click(function () {

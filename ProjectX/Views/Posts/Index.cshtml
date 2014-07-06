@@ -4,7 +4,6 @@
 
 <div id="RenderBody">
     <div id="modal">
-
         <div id="divAnonimo">
             @Html.CheckBox("cbAnonimo", false) <label id="txtAnonino"> Anônimo</label>
         </div>
@@ -24,14 +23,25 @@
         {
             <div id="divPlace">
                 <label id="titleDesc">Local</label><br />
-                @Html.DropDownList("ddPlace", new SelectList(Model.ListaBaladas, "Id", "Nome"), null, new { id = "ddPlace" })
+                <select name="listaBaladas" id="ddPlace">
+                    @foreach (var balada in Model.ListaBaladas)
+                    {
+                        <option value="@balada.Id">@balada.Nome</option>
+                    }
+                </select>
             </div>
         }
         else
         {
             <div id="divPlace" style="display:none">
                 <label id="titleDesc">Local</label><br />
-                @Html.DropDownList("ddPlace", new SelectList(Model.ListaBaladas, "Id", "Nome"), null, new { id = "ddPlace" })
+                <select name="listaBaladas" id="ddPlace">
+                    @foreach (var balada in Model.ListaBaladas)
+                    {
+                        <option value="@balada.Id">@balada.Nome</option>
+                    }
+                </select>
+              @*  @Html.DropDownList("ddPlace", new SelectList(Model.ListaBaladas, "Id", "Nome"), null, new { id = "ddPlace" })*@
             </div>
         }
 

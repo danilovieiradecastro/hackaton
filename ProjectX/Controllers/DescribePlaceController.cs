@@ -38,9 +38,12 @@ namespace ProjectX.Controllers
                                                             IsAnonimo = i.IsAnonimo,
                                                             UserName = i.UserSet.Nome,
                                                             ClassificationImg = ClassificationHelper.ReturnQuantidadeRoundAvg((decimal)i.Beleza).ToString() + "_" +
-                                                                                ClassificationHelper.ReturnBelezaRoundAvg((decimal)i.Quantidade) + ".png"
-
+                                                                                ClassificationHelper.ReturnBelezaRoundAvg((decimal)i.Quantidade) + ".png",
+                                                            Qualidade = i.Beleza,
+                                                            Quantidade = i.Quantidade
                                                         }).ToList();
+                model.Qualidade = ClassificationHelper.ReturnRoundAvg( ((decimal)model.Posts.Average(i => i.Qualidade)));
+                model.Quantidade = ClassificationHelper.ReturnRoundAvg( ((decimal)model.Posts.Average(i => i.Quantidade)));
             }
 
             GooglePlacesAPI api = new GooglePlacesAPI();

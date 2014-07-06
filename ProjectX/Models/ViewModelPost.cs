@@ -14,6 +14,10 @@ namespace ProjectX.Models
         public string UserName { get; set; }
         public bool IsAnonimo { get; set; }
         public virtual byte[] Foto { get; set; }
+
+        public int Quantidade { get; set; }
+
+        public int Qualidade { get; set; }
     }
 
     public class ViewModelPost
@@ -31,6 +35,10 @@ namespace ProjectX.Models
 
         public double Rating { get; set; }
 
-        public string Name { get; set; }    
+        public string Name { get; set; }
+
+        public int Quantidade { get; set; }
+
+        public int Qualidade{ get; set; }
     }
 }
