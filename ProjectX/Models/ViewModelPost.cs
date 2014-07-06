@@ -40,5 +40,6 @@ namespace ProjectX.Models
         public int Quantidade { get; set; }
 
         public int Qualidade{ get; set; }
+
     }
 }
