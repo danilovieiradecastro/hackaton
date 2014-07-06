@@ -42,6 +42,9 @@ namespace ProjectX.Controllers
                                                             Qualidade = i.Beleza,
                                                             Quantidade = i.Quantidade
                                                         }).ToList();
+                model.Qualidade = 20;
+                model.Quantidade = 20;
+
                 if (model.Posts.Count > 0)
                 {
                     model.Qualidade = ClassificationHelper.ReturnRoundAvg( ((decimal)model.Posts.Average(i => i.Qualidade)));
