@@ -1,6 +1,6 @@
 ﻿#divDescribePlacePartial {
     padding:20px;
-    height:30%;
+    min-height:30%;
 }
 
 #imgPlace {
@@ -52,4 +52,23 @@
 
 #listPost{
     overflow:scroll;
+}
+
+#mulherometroTitle {
+    text-shadow:0 0 2px black;
+    font-weight:bold;
+    font-size: 28px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+#divTrackQuantity {
+    position:absolute;
+    left:33px;
+}
+
+#divTrackQuality {
+    position:absolute;
+    left: 220px;
+    top: 280px;
 }

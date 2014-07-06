@@ -1,7 +1,7 @@
 ﻿@model ProjectX.Models.ViewModelPost
-<div id="listPost">
+<div id="listPost" style="overflow:hidden; padding:30px;padding-top:0;">
     <h2>Comentários</h2>
-    <div class="container" style="overflow: auto">
+    <div class="container" style="overflow:hidden;">
         <div class="row">
             <div class="[ col-xs-12 ]">
                 <div class="[ panel panel-default ] panel-google-plus">
@@ -9,34 +9,22 @@
                     </div>
 
                     @foreach (var post in Model.Posts)
-                    { 
-                      <div class="panel-heading">
-                        @if (post.IsAnonimo)
-                        {
-                            <h4>Anônimo</h4>
-                        }
-                        else
-                        { 
-                            <h4>@post.UserName</h4>
-                        }    
-                             
-                        
-                        <p>@post.Descricao</p>
-                      </div>
+                    {
+                        <div class="panel-heading" style="background-color:white;">
+                            @if (post.IsAnonimo)
+                            {
+                                <h4>• Anônimo</h4>
+                            }
+                            else
+                            {
+                                <h4>• @post.UserName</h4>
+                            }
+                            <p>@post.Descricao</p>
+
+                        <img src="/Images/@post.ClassificationImg" style="position: relative; margin-left: 700px; margin-top: -64px; width: 50px;" />
+
+                        </div>
                     }
-                    
-                    <div class="panel-google-plus-comment">
-                        <div class="panel-body">
-                            <img class="img-circle" src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s46" alt="User Image" />
-                            <h4>Nome do Fela q posta</h4>
-                        </div>
-                        <div class="panel-google-plus-textarea">
-                            <textarea rows="4"></textarea>
-                            <button type="submit" class="[ btn btn-success enabled ]">Enviar Comentário</button>
-                            <button type="reset" class="[ btn btn-default ]">Cancelar</button>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
                 </div>
             </div>
 

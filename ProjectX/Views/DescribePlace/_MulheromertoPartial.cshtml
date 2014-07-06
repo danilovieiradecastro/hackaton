@@ -1,1 +1,49 @@
-﻿
+﻿@model ProjectX.Models.ViewModelPost
+<span id="mulherometroTitle">Mulherômetro</span>
+<br /><br />
+<br />
+
+<div id="divTrackQuantity">
+    @Html.Partial("~/Views/Shared/_TrackBarQuantity.cshtml")
+</div>
+
+<div id="divTrackQuality">
+    @Html.Partial("~/Views/Shared/_TrackBarQuality.cshtml")
+</div>
+
+@{
+    var imgSrc = "";
+}
+
+<div id="divGaleria" style="position: absolute; right: 40px; border: 1px inset; width: 300px; height: 100px; background-color: white; top: 265px;">
+    @foreach (ProjectX.Models.ViewModelPostDetail item in Model.Posts)
+    {
+        if (item.Foto != null)
+        {
+            var base64 = Convert.ToBase64String(item.Foto);
+            imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+
+            <img class="imgPreview" id="imgPreview-@item.Id" src="@imgSrc" style="width: 40px; cursor: pointer" />
+        }
+    }
+</div>
+
+<div id="bigImg" style="display: none; position:absolute;z-index:99">
+    <img id="imgHdn" src="@imgSrc" style="width: 500px; left: 460px; top: -200px; position: absolute; margin-left: -250px; box-shadow: 0 0 50px 10px black;" />
+    <img id="closeImgHdn" style="position: absolute;left: 686px;top: -225px; cursor:pointer; " src="/Images/close.png" />
+</div>
+
+<script>
+    $(document).ready(function () {
+        $(".imgPreview").click(function () {
+            var src = $(this).attr("src");
+            $("#imgHdn").attr("src", src);
+            $("#bigImg").show();
+        });
+
+        $("#closeImgHdn").click(function () {
+            $("#bigImg").hide();
+        });
+
+    });
+</script>

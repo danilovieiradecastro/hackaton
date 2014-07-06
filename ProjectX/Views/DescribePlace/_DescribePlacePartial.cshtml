@@ -1,6 +1,10 @@
 ﻿@model ProjectX.Models.ViewModelPost
 
-@*<img id="imgPlace" src="/images/noimage.jpg" />*@
+@{
+    var caminho = "/images/places/" + Model.BaladaSelecionada.Id + ".jpg";
+}
+
+<img id="imgPlace" src="@caminho" />
 
 <div id="txtPlaceName">@Model.Name</div>
 
@@ -16,7 +20,7 @@
 
 @if ((Model.Endereco != null) && (Model.Endereco != ""))
 {
-    <div id="divEndereco">
+    <div id="divEndereco" style="margin-left: 164px;">
         <div id="Endereco">@Model.Endereco</div>
     </div>
 }
@@ -30,15 +34,18 @@
 
 @if ((Model.Site != null) && (Model.Site != ""))
 {
-    <div id="divWebSite">
+    <div id="divWebSite" style="margin-top: 6px;">
         <div id="WebSite"><a href="@Model.Site" target="_blank">@Model.Site</a></div>
     </div>
 }
+
+<input type="hidden" id="ratioValueHdn" value="@Model.Rating"/>
+
 <script>
    
     $(document).ready(function () {
 
-        var ratioValue = '(@Model.Rating)';
+        var ratioValue = $("#ratioValueHdn").val();
 
         $.fn.raty.defaults.path = '/Plugins/Raty/lib/images';
         $('#ratio').raty({ score: ratioValue, readOnly: true });

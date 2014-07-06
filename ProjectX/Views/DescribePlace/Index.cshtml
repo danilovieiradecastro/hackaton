@@ -2,17 +2,54 @@
 @Styles.Render("~/Content/DescribePlace/Index.css")
 @Scripts.Render("~/Plugins/Raty/lib/jquery.raty.js")
 
+<style>
+    #imgFace {
+        width: 40px;
+        margin-left: 0 !important;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        $("#btnPostsEspecifico").click(function () {
+            var classe = "modalPosts";
+            $.post("/Posts/RetornarViewAjaxLocalSelecionado", { Id: $("#hdnId").val() })
+                    .done(function (data) {
+                        $("#overlay").show();
+                        $("#ModalContent").html(data);
+                        $("#modal").addClass(classe);
+                        $("body").css("overflow", "hidden");
+                        responsive();
+                    });
+            return false;
+        });
+    });
+</script>
+
+<input type="hidden" id="hdnQuantidade" value="@Model.Quantidade" />
+<input type="hidden" id="hdnQualidade" value="@Model.Qualidade" />
+
 <div id="RenderBody">
     <div id="modal">
 
         <div id="divDescribePlacePartial">
             @Html.Partial("~/Views/DescribePlace/_DescribePlacePartial.cshtml")
         </div>
-        <div style="border:1px solid black;height:200px;">
+        <div style="height:165px; text-align: center;">
             @Html.Partial("~/Views/DescribePlace/_MulheromertoPartial.cshtml")
         </div>
 
-        @Html.Partial("~/Views/DescribePlace/_ListPostsPartial.cshtml")
-        <button id="close" onclick="closeModal()">Close</button>
+        <div style="overflow: auto; height: 267px;">
+            @Html.Partial("~/Views/DescribePlace/_ListPostsPartial.cshtml")
+        </div>
+
+        <input type="hidden" id="hdnId" value="@Model.BaladaSelecionada.Id" />
+
+        <button type="button" style="position: absolute; left: 50px; bottom: 13px; width: 115px;" id="btnPostsEspecifico" class="btn btn-info btn-sm">Enviar Post</button>
+        <button id="close" style="position: absolute; right: 50px; bottom: 13px; width: 115px;" class="btn btn-default" onclick="closeModal()">Close</button>
     </div>
 </div>
+
+
+<script>
+
+</script>

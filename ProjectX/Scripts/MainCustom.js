@@ -39,7 +39,7 @@
 function closeModal() {
     $("#overlay").hide();
     $("#ModalContent").html("");
-    $("body").css("overflow", "hidden");
+    $("body").css("overflow", "auto");
     return false;
 }
 
