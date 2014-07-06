@@ -15,11 +15,13 @@ namespace ProjectX.Controllers
 
             using (EsquentaContainerContext context = new EsquentaContainerContext())
             {
-                var value = ReturnQuantidadeRoundAvg(23.6666m);
+                //var value = ReturnQuantidadeRoundAvg(23.6666m);
 
-                var value2 = ReturnBelezaRoundAvg(89.5675m);
+                //var value2 = ReturnBelezaRoundAvg(89.5675m);
 
-                var fileName = "Images/" + value + "_" + value2 + ".png" ;
+                //var fileName = "Images/" + value + "_" + value2 + ".png" ;
+
+                var fileName = "Images/5_bonita.png";
 
                 placesViewModel = context.LocalSets.Select(i => new PlacesViewModel() 
                                                                         {

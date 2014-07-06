@@ -19,6 +19,7 @@
     @Scripts.Render("~/Scripts/jquery-ui.js")
     @*    @Scripts.Render("~/Scripts/MapsCustom.js")*@
     @Scripts.Render("~/Scripts/MainCustom.js")
+    @Scripts.Render("~/Scripts/markerCluster.js")
     @RenderSection("scripts", required: false)
 </head>
 <body>
@@ -43,19 +44,14 @@
     </div>
 
 
-    <div id="bodyContent" class="container body-content" style="border:10px;">
+    <div id="bodyContent" class="container body-content">
         @RenderBody()
 
         <div id="ModalContent">
         </div>
         <div id="overlay"></div>
 
-        <div id="Map" class="body-content" style="padding:30px;"></div>
-
-        @*@for (var i = 0; i < Model.Count; i++) {
-            Html.Raw("addMarker(" + Model[i].Lat + ", " + Model[i].Lon + "); ");
-        }*@
-
+        <div id="Map" class="body-content"></div>
 
     </div>
     
@@ -73,7 +69,7 @@
             var options = {
                 zoom: 15,
                 center: latlng,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
+                mapTypeId: google.maps.MapTypeId.TERRAIN
             };
 
             map = new google.maps.Map(document.getElementById("Map"), options);
@@ -82,19 +78,22 @@
         initialize();
 
         function carregarPontos() {
+            var markers  = [];
 
             @foreach (var place in Model) {
                 <text>
 
                 var marker = new google.maps.Marker({
                     position: new google.maps.LatLng(@place.Lat,@place.Lon),
-                    title: "@place.Name",
-                    map: map,
+                    title: "@System.Web.HttpUtility.HtmlDecode(place.Name)",
                     icon: "@place.Img"
                 });
 
-                </text>
+                markers.push(marker);
+
+            </text>
             }
+            var markerCluster = new MarkerClusterer(map, markers);
         }
 
         carregarPontos();
