@@ -42,8 +42,11 @@ namespace ProjectX.Controllers
                                                             Qualidade = i.Beleza,
                                                             Quantidade = i.Quantidade
                                                         }).ToList();
-                model.Qualidade = ClassificationHelper.ReturnRoundAvg( ((decimal)model.Posts.Average(i => i.Qualidade)));
-                model.Quantidade = ClassificationHelper.ReturnRoundAvg( ((decimal)model.Posts.Average(i => i.Quantidade)));
+                if (model.Posts.Count > 0)
+                {
+                    model.Qualidade = ClassificationHelper.ReturnRoundAvg( ((decimal)model.Posts.Average(i => i.Qualidade)));
+                    model.Quantidade = ClassificationHelper.ReturnRoundAvg( ((decimal)model.Posts.Average(i => i.Quantidade)));
+                }
             }
 
             GooglePlacesAPI api = new GooglePlacesAPI();
