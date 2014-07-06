@@ -249,6 +249,7 @@
     <Content Include="Images\homigrande.png" />
     <Content Include="Images\homipequeno.png" />
     <Content Include="Images\legenda.jpg" />
+    <Content Include="Images\logo.png" />
     <Content Include="Images\noimage.jpg" />
     <Content Include="Images\places\2.jpg" />
     <Content Include="Images\places\3.jpg" />
