@@ -47,6 +47,7 @@ function closeModal() {
 function responsive() {
     var wdt = $(document).width();
     if (wdt < 500) {
+        $("#Legenda").hide();
         $("#txtDesc").attr("id", "txtDescResponsivo");
         $("#ddPlace").attr("id", "ddPlaceResponsivo");
         $("#divTrackQuantity").attr("id", "divTrackQuantityResponsive");
@@ -54,6 +55,7 @@ function responsive() {
 
         $(".modalPosts").addClass("modalPostsResponsive");
     } else {
+        $("#Legenda").show();
         $("#txtDescResponsivo").attr("id", "txtDesc");
         $("#ddPlaceResponsivo").attr("id", "ddPlace");
         $("#divTrackQuantityResponsive").attr("id", "divTrackQuantity");

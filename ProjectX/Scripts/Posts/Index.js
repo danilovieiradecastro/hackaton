@@ -1,6 +1,7 @@
 ﻿$(document).ready(function () {
 
     $("#btnPostar").click(function () {
+        $("body").children().remove();
         $("#hdnAnonimo").val($("#cbAnonimo").is(":checked"));
         $("#hdnDescricao").val($("#txtDesc").text());
         $("#hdnLocal").val($("#ddPlace").val());
