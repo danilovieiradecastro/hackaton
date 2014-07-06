@@ -252,10 +252,10 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Posts\Index.cshtml" />
-    <Content Include="Views\DescribePlace\Index.cshtml" />
-    <Content Include="Views\DescribePlace\_DescribePlacePartial.cshtml" />
-    <Content Include="Views\DescribePlace\_MulherometroPartial.cshtml" />
-    <Content Include="Views\DescribePlace\_ListPostsPartial.cshtml" />
+    <Content Include="Views\Account\DescribePlace\Index.cshtml" />
+    <Content Include="Views\Account\DescribePlace\_DescribePlacePartial.cshtml" />
+    <Content Include="Views\Account\DescribePlace\_MulherometroPartial.cshtml" />
+    <Content Include="Views\Account\DescribePlace\_ListPostsPartial.cshtml" />
     <Content Include="Views\Shared\_TrackBarQuality.cshtml" />
   </ItemGroup>
   <ItemGroup>

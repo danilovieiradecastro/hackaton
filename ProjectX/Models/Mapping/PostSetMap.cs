@@ -29,6 +29,8 @@ namespace ProjectX.Models.Mapping
             this.Property(t => t.Local_Id).HasColumnName("Local_Id");
             this.Property(t => t.EmailUsuario).HasColumnName("EmailUsuario");
             this.Property(t => t.IsAnonimo).HasColumnName("IsAnonimo");
+            this.Property(t => t.Foto).HasColumnName("Foto");
+
 
             // Relationships
             this.HasRequired(t => t.LocalSet)
