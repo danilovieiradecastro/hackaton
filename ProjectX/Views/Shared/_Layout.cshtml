@@ -81,8 +81,8 @@
 
         function carregarPontos() {
             var markers  = [];
-
-            @foreach (var place in Model) {
+    
+            @*@foreach (var place in Model) {
                 <text>
 
             var marker = new google.maps.Marker({
@@ -93,16 +93,16 @@
 
             google.maps.event.addListener(marker, 'click', function() {
                 
-                    var classe = "";
-                    $.post("/DescribePlace/RetornarViewAjax", { Id : @place.Id })
-                            .done(function (data) {
-                                $("#overlay").show();
-                                $("#ModalContent").html(data);
-                                $("#modal").addClass(classe);
-                                $("body").css("overflow", "hidden");
-                                responsive();
-                            });
-                    return false;
+                var classe = "";
+                $.post("/DescribePlace/RetornarViewAjax", { Id : @place.Id })
+                        .done(function (data) {
+                            $("#overlay").show();
+                            $("#ModalContent").html(data);
+                            $("#modal").addClass(classe);
+                            $("body").css("overflow", "hidden");
+                            responsive();
+                        });
+                return false;
                 
 
             });
@@ -111,7 +111,9 @@
 
             </text>
             }
-            var markerCluster = new MarkerClusterer(map, markers);
+            var markerCluster = new MarkerClusterer(map, markers);*@
+          
+            
         }
 
         carregarPontos();

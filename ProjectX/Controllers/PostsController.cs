@@ -71,7 +71,7 @@ namespace ProjectX.Controllers
             {
 
 
-                var user = db.UserSets.Where(ae => ae.Email == "c0r3ylnx@gmail.com").First();
+                var user = db.UserSets.Where(ae => ae.Nome == User.Identity.Name).First();
                 db.PostSets.Add(new PostSet
                 {
                     IsAnonimo = Convert.ToBoolean(anonimo),

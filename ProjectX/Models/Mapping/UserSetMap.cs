@@ -19,6 +19,7 @@ namespace ProjectX.Models.Mapping
       this.Property(t => t.Id).HasColumnName("Id");
       this.Property(t => t.Email).HasColumnName("Email");
       this.Property(t => t.Nome).HasColumnName("Nome");
+      this.Property(t => t.IdIdentity).HasColumnName("IdIdentity");
     }  
   }
 }

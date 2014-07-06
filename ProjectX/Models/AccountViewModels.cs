@@ -7,6 +7,7 @@ namespace ProjectX.Models
         [Required]
         [Display(Name = "User name")]
         public string UserName { get; set; }
+        
     }
 
     public class ManageUserViewModel
@@ -39,8 +40,11 @@ namespace ProjectX.Models
         [Display(Name = "Password")]
         public string Password { get; set; }
 
+
+        public string email { get; set; }
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
+
     }
 
     public class RegisterViewModel
@@ -59,5 +63,9 @@ namespace ProjectX.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "Email")]
+       
+        public string email { get; set; }
     }
 }

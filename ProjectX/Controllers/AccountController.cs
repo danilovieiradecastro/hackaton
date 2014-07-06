@@ -49,6 +49,7 @@ namespace ProjectX.Controllers
                 if (user != null)
                 {
                     await SignInAsync(user, model.RememberMe);
+                 
                     return RedirectToLocal(returnUrl);
                 }
                 else
@@ -82,6 +83,17 @@ namespace ProjectX.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                   using (var banco = new EsquentaContainerContext())
+                  {
+                    banco.UserSets.Add(new UserSet
+                    {
+                      IdIdentity = user.Id,
+                      Email = model.email,
+                      Nome = model.UserName
+
+                    });
+                    banco.SaveChanges();
+                  }
                     await SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }
