@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectX.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,9 +16,15 @@ namespace ProjectX.Controllers
             return View();
         }
 
-        public ActionResult RetornarViewAjax()
+        public ActionResult RetornarViewAjax(String Id)
         {
-            return PartialView("/Views/DescribePlace/Index.cshtml");
+            ViewModelPost model = new ViewModelPost();
+            int id = Convert.ToInt32(Id);
+            using (var db = new EsquentaContainerContext())
+            {
+                model.ListaBaladas = db.LocalSets.Where(x => x.Id == id).ToList();
+            }
+            return PartialView("/Views/DescribePlace/Index.cshtml", model);
         }
 	}
 }

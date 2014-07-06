@@ -24,6 +24,14 @@
         return false;
     });
 
+    $(window).resize(function () {
+        var wdt = $(document).width();
+        if (wdt < 500) {
+            $("#txtDesc").css("width")
+        }
+    });
+
+
 });
 
 
