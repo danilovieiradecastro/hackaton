@@ -41,9 +41,10 @@ namespace ProjectX.Controllers
                         quantidadeAvg = posts.Average(i => i.Quantidade);
                     }
 
-                    place.Img = @"/Images/"+ ClassificationHelper.ReturnQuantidadeRoundAvg((decimal)quantidadeAvg) + "_" +
-                                ClassificationHelper.ReturnBelezaRoundAvg((decimal)belezaAvg) + ".png";
+                    var qualidade = ClassificationHelper.ReturnRoundAvg(((decimal)belezaAvg));
+                    var quantidade = ClassificationHelper.ReturnRoundAvg(((decimal)quantidadeAvg));
 
+                    place.Img = "/Images/" + ClassificationHelper.ReturnQuantidadeRoundAvg(quantidade) + "_" + ClassificationHelper.ReturnBelezaRoundAvg(qualidade) + ".png"; 
                 }
             }
 
