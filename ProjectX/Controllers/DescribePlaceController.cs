@@ -28,8 +28,7 @@ namespace ProjectX.Controllers
                 var time =  DateTime.Now.AddMinutes(-90);
 
                 model.Posts = db.PostSets.Include("UserSet").AsEnumerable()
-                                         //.Where(i => i.Data > time && i.Local_Id == id)
-                                          .Where(i => i.Local_Id == id)
+                                         .Where(i => i.Data > time && i.Local_Id == id)
                                          .Select(i => new ViewModelPostDetail()
                                                         {
                                                             Id = i.Id,

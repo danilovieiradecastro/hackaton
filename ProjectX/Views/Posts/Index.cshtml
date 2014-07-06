@@ -2,7 +2,8 @@
 @Styles.Render("~/Content/Posts/Index.css")
 @Scripts.Render("~/Scripts/Posts/Index.js")
 
-<div id="RenderBody">
+
+<div id="RenderBody" >
     <div id="modal">
         <div id="divAnonimo">
             @Html.CheckBox("cbAnonimo", false) <label id="txtAnonino"> Anônimo</label>
@@ -10,7 +11,7 @@
 
         <div id="divDesc">
             <label id="titleDesc">Descrição</label><br />
-            <div contenteditable="true" id="txtDesc">
+            <div contenteditable="true" id="txtDesc" ng-model="modelDesc">
                 
             </div>
             <div  id="DivImgPreview">
@@ -65,9 +66,8 @@
             <div class="btns">
                 <button id="btnPostar" class="btn btn-success">Postar</button>
                 <button type="button" id="close" class="btn" onclick="closeModal()">Close</button>
-            </div>
+            </div>           
         }
         <button id="linkAnexar" class="btn btn-danger">Anexar</button>
-
     </div>
 </div>

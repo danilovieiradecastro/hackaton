@@ -1,10 +1,9 @@
 ﻿$(document).ready(function () {
 
     $("#btnPostar").click(function () {
-
         $("#hdnAnonimo").val($("#cbAnonimo").is(":checked"));
         $("#hdnAnonimo").val($("#cbAnonimo").val());
-        $("#hdnDescricao").val($("#txtDesc").val());
+        //$("#hdnDescricao").val($("#txtDesc").val());
         $("#hdnLocal").val($("#ddPlace").val());
         $("#hdnPostar").trigger("click");
     });
