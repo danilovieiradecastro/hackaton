@@ -112,6 +112,10 @@ footer {
     border:0;
 }
 
+.modalPostsResponsive{
+    height:500px ! important;
+}
+
 #btnPosts {
     width:200px;
     height:40px;

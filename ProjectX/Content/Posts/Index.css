@@ -15,10 +15,22 @@
     right:60px;
 }
 
+#divTrackQualityResponsive {
+    position:absolute;
+    bottom:95px;
+    left:100px;
+}
+
 #divTrackQuantity {
     position:absolute;
     bottom:80px;
     left:60px;
+}
+
+#divTrackQuantityResponsive {
+    position:absolute;
+    bottom:210px;
+    left:100px;
 }
 
 #txtDesc {
@@ -27,9 +39,18 @@
     border: 1px solid rgba(0,0,0,0.3);
     resize:none;
     width:365px;
-    max-width:370px ! important;
+    max-width:370px;
     height:70px;
-    
+}
+
+#txtDescResponsivo {
+    padding:2px;
+    background-color:white;
+    border: 1px solid rgba(0,0,0,0.3);
+    resize:none;
+    width:205px ! important;
+    max-width:205px ! important;
+    height:70px;
 }
 
 #divAnonimo {
@@ -43,8 +64,13 @@
 }
 
 #ddPlace {
-    width:434px ! important;
-    max-width:434px ! important;
+    width:434px;
+    max-width:434px;
+}
+
+#ddPlaceResponsivo {
+    width:277px ! important;
+    max-width:277px ! important;
 }
 
 #hdnImage {
