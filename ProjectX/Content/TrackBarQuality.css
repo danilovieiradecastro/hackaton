@@ -1,4 +1,16 @@
 ﻿#slider {
-    display:none;
+    width:150px;
+    margin-top:5px;
+}
+
+#imgFace {
     width:50px;
+    margin-left:45px;
+}
+
+#status{
+    max-width: 145px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 5px;
 }
