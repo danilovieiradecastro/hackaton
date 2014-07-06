@@ -49,3 +49,7 @@
     font-weight:bold;
 
 }
+
+#listPost{
+    overflow:scroll;
+}
