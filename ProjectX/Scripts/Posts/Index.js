@@ -1,13 +1,20 @@
 ﻿$(document).ready(function () {
 
-    $("#btnPostar").click(function () {
-        $("body").children().remove();
+    $("#btnPostar").on("click touch", function () {
+        
+        $("#txtDescResponsivo").attr("id", "txtDesc");
+        $("#ddPlaceResponsivo").attr("id", "ddPlace");
+        $("#divTrackQuantityResponsive").attr("id", "divTrackQuantity");
+        $("#divTrackQualityResponsive").attr("id", "divTrackQuality");
+
         $("#hdnAnonimo").val($("#cbAnonimo").is(":checked"));
         $("#hdnDescricao").val($("#txtDesc").text());
         $("#hdnLocal").val($("#ddPlace").val());
 
         $("#hdnPostar").trigger("click");
     });
+
+
 
     $("#linkAnexar").click(function () {
         $("#hdnImage").trigger("click");

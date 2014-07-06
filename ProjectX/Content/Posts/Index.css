@@ -37,7 +37,6 @@
     padding:2px;
     background-color:white;
     border: 1px solid rgba(0,0,0,0.3);
-    resize:none;
     width:365px;
     max-width:370px;
     height:70px;
@@ -47,7 +46,6 @@
     padding:2px;
     background-color:white;
     border: 1px solid rgba(0,0,0,0.3);
-    resize:none;
     width:145px ! important;
     max-width:145px ! important;
     height:70px;
