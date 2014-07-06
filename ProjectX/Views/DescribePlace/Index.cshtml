@@ -43,8 +43,10 @@
         </div>
 
         <input type="hidden" id="hdnId" value="@Model.BaladaSelecionada.Id" />
-
+        @if(User.Identity.IsAuthenticated)
+        { 
         <button type="button" style="position: absolute; left: 50px; bottom: 13px; width: 115px;" id="btnPostsEspecifico" class="btn btn-info btn-sm">Enviar Post</button>
+        }
         <button id="close" style="position: absolute; right: 50px; bottom: 13px; width: 115px;" class="btn btn-default" onclick="closeModal()">Close</button>
     </div>
 </div>
