@@ -1,4 +1,5 @@
-﻿using ProjectX.Models;
+﻿using ProjectX.Helpers;
+using ProjectX.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,30 +15,37 @@ namespace ProjectX.Controllers
             List<PlacesViewModel> placesViewModel;
 
             using (EsquentaContainerContext context = new EsquentaContainerContext())
-            {
-                //var value = ReturnQuantidadeRoundAvg(23.6666m);
-
-                //var value2 = ReturnBelezaRoundAvg(89.5675m);
-
-                //var fileName = "Images/" + value + "_" + value2 + ".png" ;
-
-                var fileName = "Images/1_pegoBebado.png ";
-
+            {                
                 placesViewModel = context.LocalSets.Select(i => new PlacesViewModel() 
                                                                         {
                                                                             Id = i.Id,
                                                                             Name = i.Nome,
                                                                             Lat = i.Latitude.ToString(),
-                                                                            Lon = i.Longitude.ToString(),
-                                                                            Img = fileName
+                                                                            Lon = i.Longitude.ToString(),                                                                            
                                                                         }).ToList();
-                //foreach (var place in placesViewModel)
-                //{
-                //    var belezaAvg = context.PostSets.Where(i => i.Data > DateTime.Now.AddMinutes(-90) && i.Votos < 3).Average(i => i.Beleza);
-                   
-                //}
+                foreach (var place in placesViewModel)
+                {
+                    var posts = context.PostSets.AsEnumerable().Where(i => i.Data > DateTime.Now.AddMinutes(-90) && i.Votos < 3 && i.Local_Id == place.Id);
 
+                    double belezaAvg = 20;
 
+                    if (posts.Count() > 0)
+                    {
+                        belezaAvg = posts.Average(i => i.Beleza);
+                    }
+ 
+                    double quantidadeAvg = 20;
+
+                    if (posts.Count() > 0)
+                    {
+                        quantidadeAvg = posts.Average(i => i.Quantidade);
+                    }
+
+                    var qualidade = ClassificationHelper.ReturnRoundAvg(((decimal)belezaAvg));
+                    var quantidade = ClassificationHelper.ReturnRoundAvg(((decimal)quantidadeAvg));
+
+                    place.Img = "/Images/" + ClassificationHelper.ReturnQuantidadeRoundAvg(quantidade) + "_" + ClassificationHelper.ReturnBelezaRoundAvg(qualidade) + ".png"; 
+                }
             }
 
             return View(placesViewModel);

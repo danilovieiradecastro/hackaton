@@ -90,7 +90,7 @@
             var marker = new google.maps.Marker({
                 position: new google.maps.LatLng(@place.Lat,@place.Lon),
                 title: "@System.Web.HttpUtility.HtmlDecode(place.Name)",
-                icon: "@place.Img"
+                icon: @place.Img
             });
 
             google.maps.event.addListener(marker, 'click', function() {
@@ -114,9 +114,7 @@
             </text>
             }
             var markerCluster = new MarkerClusterer(map, markers);
-          
             
-                var markerCluster = new MarkerClusterer(map, markers);    
         }
 
         carregarPontos();
