@@ -25,7 +25,7 @@ namespace ProjectX.Controllers
                                                                         }).ToList();
                 foreach (var place in placesViewModel)
                 {
-                    var posts = context.PostSets.AsEnumerable().Where(i => i.Data > DateTime.Now.AddMinutes(-90) && i.Votos < 3 && i.Local_Id == place.Id);
+                    var posts = context.PostSets.AsEnumerable().Where(i => i.Data > DateTime.Now.AddMinutes(-180) && i.Votos < 3 && i.Local_Id == place.Id);
 
                     double belezaAvg = 20;
 

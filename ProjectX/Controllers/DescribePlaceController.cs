@@ -25,7 +25,7 @@ namespace ProjectX.Controllers
             using (var db = new EsquentaContainerContext())
             {
                 model.BaladaSelecionada = db.LocalSets.Where(x => x.Id == id).FirstOrDefault();
-                var time =  DateTime.Now.AddMinutes(-150);
+                var time =  DateTime.Now.AddMinutes(-180);
 
                 model.Posts = db.PostSets.Include("UserSet").AsEnumerable()
                                          .Where(i => i.Data > time && i.Local_Id == id)
