@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title Bora lá</title>
 
     @*<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>*@
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAkUFML8LL4ofXmhgLhGuEmjyZUIuQY8J0&amp;sensor=false"></script>
@@ -71,12 +71,13 @@
         var latlng = new google.maps.LatLng(-21.7669294, -43.353678);
 
         var options = {
-            zoom: 15,
+            zoom: 1,
             center: latlng,
             mapTypeId: google.maps.MapTypeId.TERRAIN
         };
 
         map = new google.maps.Map(document.getElementById("Map"), options);
+        map.setZoom(15);
     }
 
     initialize();
@@ -119,7 +120,7 @@
                 });
 
                 //map.setCenter(pos);
-                //map.zoom(50);
+                map.zoom(50);
                 //map.setCenter(pos);
             }, function() {
                 handleNoGeolocation(true);

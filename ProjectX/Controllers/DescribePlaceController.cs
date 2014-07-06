@@ -25,10 +25,11 @@ namespace ProjectX.Controllers
             using (var db = new EsquentaContainerContext())
             {
                 model.BaladaSelecionada = db.LocalSets.Where(x => x.Id == id).FirstOrDefault();
-                var time =  DateTime.Now.AddMinutes(-90);
+                var time =  DateTime.Now.AddMinutes(-150);
 
                 model.Posts = db.PostSets.Include("UserSet").AsEnumerable()
                                          .Where(i => i.Data > time && i.Local_Id == id)
+                                         
                                          .Select(i => new ViewModelPostDetail()
                                                         {
                                                             Id = i.Id,
@@ -41,7 +42,7 @@ namespace ProjectX.Controllers
                                                             Qualidade = i.Beleza,
                                                             Quantidade = i.Quantidade,
                                                             Foto = i.Foto
-                                                        }).ToList();
+                                                        }).OrderByDescending(i => i.Data).ToList();
                 model.Qualidade = 20;
                 model.Quantidade = 20;
 
