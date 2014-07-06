@@ -61,11 +61,17 @@ namespace ProjectX.Controllers
             if(st != null)
                 st.CopyTo(memoryStream);
 
-            //var selec = model["hdnLocal"];
-            //string anonimo = model["hdnAnonimo"];
-            //string desc = model["hdnDescricao"];
-            //string qtd = model["hdnQtd"];
-            //string qld = model["hdnQld"];
+            var selec3 = Request["hdnLocal"];
+            string anonimo3 = Request["hdnAnonimo"];
+            string desc3 = Request["hdnDescricao"];
+            string qtd3 = Request["hdnQtd"];
+            string qld3 = Request["hdnQld"];
+
+            var selec2 = model["hdnLocal"];
+            string anonimo2 = model["hdnAnonimo"];
+            string desc2 = model["hdnDescricao"];
+            string qtd2 = model["hdnQtd"];
+            string qld2 = model["hdnQld"];
 
             var selec = Request.Form["hdnLocal"];
             string anonimo = Request.Form["hdnAnonimo"];

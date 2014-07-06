@@ -1,10 +1,12 @@
 ﻿$(document).ready(function () {
 
-    var valorStr = $("#hdnQualidade").val();
+    var valorStr = $("#hdnQuantidade").val();
     var valor = parseInt(valorStr);
 
     var statusArray = ["Fraco", "Gato Pingado", "Mais ou Menos", "Cheio", "Bombando"];
     var posArray = ["0", "-30", "-60", "-90", "-120"];
+
+    alert(valorStr);
 
     if (valorStr != undefined) {
         $("#sliderQuantity").slider({
