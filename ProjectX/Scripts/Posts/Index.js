@@ -39,6 +39,7 @@
     $("#closeImgPreview").click(function () {
 
         $("#imgPreview").attr("src", "#");
+        $(this).hide();
         $("#imgPreview").hide();
         $("#hdnImage").val("");
 

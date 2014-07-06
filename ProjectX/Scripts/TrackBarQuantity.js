@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     
-    var statusArray = ["Vazio", "Gato Pingado", "Mais ou Menos", "Cheio", "Lotado"];
+    var statusArray = ["Fraco", "Gato Pingado", "Mais ou Menos", "Cheio", "Bombando"];
     var posArray = ["0", "-30", "-60", "-90", "-120"];
 
     $("#sliderQuantity").slider({
