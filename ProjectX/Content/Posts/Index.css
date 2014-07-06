@@ -1,1 +1,46 @@
-﻿
+﻿.btns {
+    width:140px;
+    position:absolute;
+    right:30px;
+    bottom:20px;
+}
+
+.btns .btn{
+    box-shadow: 0 0 5px 0 black;
+}
+
+#divTrackQuality {
+    position:absolute;
+    bottom:80px;
+    right:60px;
+}
+
+#divTrackQuantity {
+    position:absolute;
+    bottom:80px;
+    left:60px;
+}
+
+#txtDesc {
+    resize:none;
+    width:434px;
+    max-width:434px ! important;
+    height:70px;
+    
+}
+
+#divAnonimo {
+    position:absolute;
+    right:35px;
+}
+
+#linkAnexar {
+    position:absolute;
+    bottom:20px;
+    text-decoration:underline;
+}
+
+#ddPlace {
+    width:434px ! important;
+    max-width:434px ! important;
+}

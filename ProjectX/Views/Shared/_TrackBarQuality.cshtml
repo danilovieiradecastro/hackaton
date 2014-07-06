@@ -1,8 +1,9 @@
-﻿
-<br /><br /><br />
+﻿@Scripts.Render("~/Scripts/TrackBarQuality.js")
+@Styles.Render("~/Content/TrackBarQuality.css")
 
-@*<input type="file" accept="image/*;capture=camera" />*@
-<img id="qualityImage" src="" align="middle" />
-<div class="slider-wrapper" style="margin:10px">
-    <input type="text" class="sliderQualityCustomized" />
-</div>
+<span id="titleQualidade">Qualidade</span>
+
+<img id="imgFace" src="/Images/faces/20.png" />
+
+<div id="slider"></div>
+<div id="status"></div>
