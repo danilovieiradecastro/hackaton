@@ -61,11 +61,17 @@ namespace ProjectX.Controllers
             if(st != null)
                 st.CopyTo(memoryStream);
 
-            var selec = model["hdnLocal"];
-            string anonimo = model["hdnAnonimo"];
-            string desc = model["hdnDescricao"];
-            string qtd = model["hdnQtd"];
-            string qld = model["hdnQld"];
+            //var selec = model["hdnLocal"];
+            //string anonimo = model["hdnAnonimo"];
+            //string desc = model["hdnDescricao"];
+            //string qtd = model["hdnQtd"];
+            //string qld = model["hdnQld"];
+
+            var selec = Request.Form["hdnLocal"];
+            string anonimo = Request.Form["hdnAnonimo"];
+            string desc = Request.Form["hdnDescricao"];
+            string qtd = Request.Form["hdnQtd"];
+            string qld = Request.Form["hdnQld"];
 
             using (var db = new EsquentaContainerContext())
             {

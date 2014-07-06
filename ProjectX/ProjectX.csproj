@@ -262,6 +262,7 @@
     <Content Include="Plugins\Raty\lib\images\star-on.png" />
     <Content Include="Plugins\Raty\lib\jquery.raty.css" />
     <Content Include="Plugins\Raty\lib\jquery.raty.js" />
+    <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap-modal.js" />
     <Content Include="Scripts\bootstrap-modalmanager.js" />
     <Content Include="Scripts\bootstrap.js" />
