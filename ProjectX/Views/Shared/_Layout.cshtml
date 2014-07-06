@@ -115,6 +115,24 @@
         }
 
         carregarPontos();
+        function responsive() {
+            var wdt = $(document).width();
+            if (wdt < 500) {
+                $("#txtDesc").attr("id", "txtDescResponsivo");
+                $("#ddPlace").attr("id", "ddPlaceResponsivo");
+                $("#divTrackQuantity").attr("id", "divTrackQuantityResponsive");
+                $("#divTrackQuality").attr("id", "divTrackQualityResponsive");
+
+                $(".modalPosts").addClass("modalPostsResponsive");
+            } else {
+                $("#txtDescResponsivo").attr("id", "txtDesc");
+                $("#ddPlaceResponsivo").attr("id", "ddPlace");
+                $("#divTrackQuantityResponsive").attr("id", "divTrackQuantity");
+                $("#divTrackQualityResponsive").attr("id", "divTrackQuality");
+
+                $(".modalPostsResponsive").removeClass("modalPostsResponsive");
+            }
+        }
     </script>
     @Scripts.Render("~/Scripts/bootstrap-modalmanager.js");
     @Scripts.Render("~/Scripts/bootstrap-modal.js");
