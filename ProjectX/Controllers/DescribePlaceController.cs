@@ -36,8 +36,8 @@ namespace ProjectX.Controllers
                                                             Data = i.Data,
                                                             IsAnonimo = i.IsAnonimo,
                                                             UserName = i.UserSet.Nome,
-                                                            ClassificationImg = ClassificationHelper.ReturnQuantidadeRoundAvg((decimal)i.Beleza).ToString() + "_" +
-                                                                                ClassificationHelper.ReturnBelezaRoundAvg((decimal)i.Quantidade) + ".png",
+                                                            ClassificationImg = ClassificationHelper.ReturnQuantidadeRoundAvg((decimal)i.Quantidade).ToString() + "_" +
+                                                                                ClassificationHelper.ReturnBelezaRoundAvg((decimal)i.Beleza) + ".png",
                                                             Qualidade = i.Beleza,
                                                             Quantidade = i.Quantidade,
                                                             Foto = i.Foto
