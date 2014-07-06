@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectX.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,19 @@ namespace ProjectX.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            List<PlacesViewModel> placesViewModel;
+
+            using (EsquentaContainerContext context = new EsquentaContainerContext())
+            {
+                placesViewModel = context.LocalSets.Select(i => new PlacesViewModel() 
+                                                                        {
+                                                                            Name = i.Nome,
+                                                                            Lat = i.Latitude.ToString(),
+                                                                            Lon = i.Longitude.ToString(),
+                                                                        }).ToList();    
+            }
+
+            return View(placesViewModel);
         }
 
         public ActionResult About()

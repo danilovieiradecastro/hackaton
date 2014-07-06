@@ -1,21 +1,24 @@
-﻿<!DOCTYPE html>
+﻿@model List<ProjectX.Models.PlacesViewModel>
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
 
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    @*<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>*@
 
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAkUFML8LL4ofXmhgLhGuEmjyZUIuQY8J0&amp;sensor=false"></script>
+  
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/Scripts/MapsCustom.js")
+    @*    @Scripts.Render("~/Scripts/MapsCustom.js")*@
     @Scripts.Render("~/Scripts/MainCustom.js")
 
     @RenderSection("scripts", required: false)
-
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top customMainTop">
@@ -49,15 +52,61 @@
 
         <div id="Map" class="body-content"></div>
 
+        @*@for (var i = 0; i < Model.Count; i++) {
+            Html.Raw("addMarker(" + Model[i].Lat + ", " + Model[i].Lon + "); ");
+        }*@
+
 
     </div>
     
     <footer style="padding:10px;">
         <button type="button" class="btn btn-default btn-sm">Enviar Post</button>
     </footer>
-    @Styles.Render("~/Content/powerange.min.css")
-    @Scripts.Render("~/Scripts/powerange.min.js")
-    @Scripts.Render("~/Scripts/trackBarQuality.js")
+
+    <script type="text/javascript">
+        var teste;
+        var map;
+
+        function initialize() {	
+            var latlng = new google.maps.LatLng(-21.7669294, -43.353678);
+	
+            var options = {
+                zoom: 15,
+                center: latlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            map = new google.maps.Map(document.getElementById("Map"), options);
+        }
+
+        initialize();
+
+        function carregarPontos() {
+            
+            @foreach (var place in Model) {
+                <text>
+
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(@place.Lat,@place.Lon),                    
+                    title: "@place.Name",
+                    map: map
+                });
+
+                google.maps.event.addListener(marker, 'click', function() {
+                    alert('oi');
+                    map.setCenter(marker.getPosition());
+                });
+
+                </text>
+            }
+        }
+
+        carregarPontos();
+
+
+
+    </script>
+
 
 </body>
 </html>

@@ -173,6 +173,7 @@
     <Compile Include="Models\EsquentaContainerContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LocalSet.cs" />
+    <Compile Include="Models\MainPageViewModel.cs" />
     <Compile Include="Models\Mapping\LocalSetMap.cs" />
     <Compile Include="Models\Mapping\PostSetMap.cs" />
     <Compile Include="Models\PostSet.cs" />
@@ -223,6 +224,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\MainCustom.js" />
     <Content Include="Scripts\MapsCustom.js" />
+    <Content Include="Scripts\markermanager.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\powerange.min.js" />
     <Content Include="Scripts\respond.js" />
