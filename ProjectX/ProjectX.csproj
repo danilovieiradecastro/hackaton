@@ -246,6 +246,8 @@
     <Content Include="Images\faces\60.png" />
     <Content Include="Images\faces\100.png" />
     <Content Include="Images\faces\faceUn.png" />
+    <Content Include="Images\homigrande.png" />
+    <Content Include="Images\homipequeno.png" />
     <Content Include="Images\legenda.jpg" />
     <Content Include="Images\noimage.jpg" />
     <Content Include="Images\places\2.jpg" />
