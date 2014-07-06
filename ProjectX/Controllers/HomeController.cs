@@ -26,5 +26,16 @@ namespace ProjectX.Controllers
 
             return View();
         }
+
+        public ActionResult Teste()
+        {
+            string anonimo = Request["hdnAnonimo"];
+            string desc = Request["hdnDescricao"];
+            string local = Request["hdnLocal"];
+            string qtd = Request["hdnQtd"];
+            string qld = Request["hdnQld"];
+
+            return View();
+        }
     }
 }

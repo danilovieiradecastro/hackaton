@@ -78,11 +78,10 @@ footer {
 
 #modal {
     position:relative;
-    border:1px solid black;
     max-width:900px;
     margin:0 auto;
     height:650px;
-    background-color:white;
+    background-color:whitesmoke;
     z-index:15;
 }
 
@@ -106,6 +105,9 @@ footer {
 
 .modalPosts{
     max-width:500px ! important;
-    height:300px ! important;
+    height:380px ! important;
     padding:30px ! important;
+    padding-top:15px ! important;
+    border-radius:10px;
+    border:0;
 }

@@ -1,13 +1,46 @@
 ﻿@Styles.Render("~/Content/Posts/Index.css")
+@Scripts.Render("~/Scripts/Posts/Index.js")
 
 <div id="RenderBody">
     <div id="modal">
 
-        @Html.Partial("~/Views/Shared/_TrackBarQuality.cshtml")
+        <div id="divAnonimo">
+            <input type="checkbox" id="cbAnonimo" /> <label id="txtAnonino"> Anônimo</label>
+        </div>
 
+        <div id="divDesc">
+            <label id="titleDesc">Descrição</label><br />
+            <textarea id="txtDesc"></textarea>
+        </div>
+        <br />
+        <div id="divPlace">
+            <label id="titleDesc">Local</label><br />
+            @Html.DropDownList("ddPlace", new SelectList("", "Value", "Text"), null, new { id = "ddPlace" })
+        </div>
+        
+        <div id="divTrackQuality">
+            @Html.Partial("~/Views/Shared/_TrackBarQuality.cshtml")
+        </div>
+        <div id="divTrackQuantity">
+            @Html.Partial("~/Views/Shared/_TrackBarQuantity.cshtml")
+        </div>
 
+        @Html.BeginForm("Teste", "Home", new { nomeparametro = "valor" })
+        {
+        <input type="hidden" name="hdnAnonimo" id="hdnAnonimo" />
+        <input type="hidden" name="hdnDescricao" id="hdnDescricao" />
+        <input type="hidden" name="hdnLocal" id="hdnLocal" />
+        <input type="hidden" name="hdnQtd" id="hdnQtd" />
+        <input type="hidden" name="hdnQld" id="hdnQld" />
+        <button type="submit" id="hdnPostar" style="display:none;"></button>
 
-        @*<button id="close" onclick="closeModal()">Close</button>*@
+        <div class="btns">
+            <button id="btnPostar" class="btn btn-success">Postar</button>
+            <button id="close" class="btn" onclick="closeModal()">Close</button>
+        </div>
+        }
+
+        <a href="#" id="linkAnexar">Anexar</a>
 
     </div>
 </div>
