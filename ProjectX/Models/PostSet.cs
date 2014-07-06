@@ -12,9 +12,10 @@ namespace ProjectX.Models
         public System.DateTime Data { get; set; }
         public int Votos { get; set; }
         public int Local_Id { get; set; }
-        public string EmailUsuario { get; set; }
+        public int User_id { get; set; }
         public bool IsAnonimo { get; set; }
         public virtual LocalSet LocalSet { get; set; }
+        public virtual UserSet UserSet { get; set; }
         public virtual byte[] Foto { get; set; }
     }
 }
