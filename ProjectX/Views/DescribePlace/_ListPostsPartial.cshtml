@@ -11,6 +11,7 @@
                     @foreach (var post in Model.Posts)
                     {
                         <div class="panel-heading" style="background-color:white;">
+                            
                             @if (post.IsAnonimo)
                             {
                                 <h4>• Anônimo</h4>
@@ -19,6 +20,7 @@
                             {
                                 <h4>• @post.UserName</h4>
                             }
+                            <div>@post.Data</div>
                             <p>@post.Descricao</p>
 
                         <img src="/Images/@post.ClassificationImg" style="position: relative; margin-left: 700px; margin-top: -64px; width: 50px;" />
