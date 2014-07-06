@@ -20,7 +20,7 @@
     @Scripts.Render("~/Scripts/MainCustom.js")
     @Scripts.Render("~/Scripts/markerCluster.js")
     @Styles.Render("~/Content/bootstrap-modal-bs3patch.css")
-    @Styles.Render("~/Content/bootstrap-modal.css")    
+    @Styles.Render("~/Content/bootstrap-modal.css")
     @RenderSection("scripts", required: false)
 </head>
 <body>
@@ -36,7 +36,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="#" id="btnDescribePlace">Describe Place</a></li>
+                    
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -85,35 +85,37 @@
             var markers  = [];
     
                 @foreach (var place in Model) {
-                <text>    
+                <text>
 
-                var marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(@place.Lat,@place.Lon),
-                    title: "@System.Web.HttpUtility.HtmlDecode(place.Name)",
-                    icon: "@place.Img"
-                });
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(@place.Lat,@place.Lon),
+                title: "@System.Web.HttpUtility.HtmlDecode(place.Name)",
+                icon: "@place.Img"
+            });
 
-                google.maps.event.addListener(marker, 'click', function() {
+            google.maps.event.addListener(marker, 'click', function() {
                 
-                    var classe = "";
-                    $.post("/DescribePlace/RetornarViewAjax", { Id : @place.Id })
-                            .done(function (data) {
-                                $("#overlay").show();
-                                $("#ModalContent").html(data);
-                                $("#modal").addClass(classe);
-                                $("body").css("overflow", "hidden");
-                                responsive();
-                            });
-                    return false;
+                var classe = "";
+                $.post("/DescribePlace/RetornarViewAjax", { Id : @place.Id })
+                        .done(function (data) {
+                            $("#overlay").show();
+                            $("#ModalContent").html(data);
+                            $("#modal").addClass(classe);
+                            $("body").css("overflow", "hidden");
+                            responsive();
+                        });
+                return false;
                 
 
-                });
+            });
 
-                markers.push(marker);
+            markers.push(marker);
 
-                </text>
-                }
-                
+            </text>
+            }
+            var markerCluster = new MarkerClusterer(map, markers);
+          
+            
                 var markerCluster = new MarkerClusterer(map, markers);    
         }
 
