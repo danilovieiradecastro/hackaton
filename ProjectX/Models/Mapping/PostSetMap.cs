@@ -14,9 +14,6 @@ namespace ProjectX.Models.Mapping
             this.Property(t => t.Descricao)
                 .IsRequired();
 
-            this.Property(t => t.EmailUsuario)
-                .IsRequired()
-                .HasMaxLength(150);
 
             // Table & Column Mappings
             this.ToTable("PostSet");
@@ -27,7 +24,8 @@ namespace ProjectX.Models.Mapping
             this.Property(t => t.Data).HasColumnName("Data");
             this.Property(t => t.Votos).HasColumnName("Votos");
             this.Property(t => t.Local_Id).HasColumnName("Local_Id");
-            this.Property(t => t.EmailUsuario).HasColumnName("EmailUsuario");
+            this.Property(t => t.User_id).HasColumnName("User_Id");
+
             this.Property(t => t.IsAnonimo).HasColumnName("IsAnonimo");
             this.Property(t => t.Foto).HasColumnName("Foto");
 
@@ -36,6 +34,7 @@ namespace ProjectX.Models.Mapping
             this.HasRequired(t => t.LocalSet)
                 .WithMany(t => t.PostSets)
                 .HasForeignKey(d => d.Local_Id);
+            this.HasRequired(t => t.UserSet).WithMany().HasForeignKey(t => t.User_id);
 
         }
     }
