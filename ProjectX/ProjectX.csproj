@@ -184,6 +184,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-modal.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\DescribePlace\Index.css" />
@@ -203,6 +204,7 @@
     <Content Include="Content\images\ui-icons_888888_256x240.png" />
     <Content Include="Content\images\ui-icons_cd0a0a_256x240.png" />
     <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\bootstrap-modal-bs3patch.css" />
     <Content Include="Content\Posts\Index.css" />
     <Content Include="Content\TrackBarQuantity.css" />
     <Content Include="Content\TrackBarQuality.css" />
@@ -253,6 +255,8 @@
     <Content Include="Plugins\Raty\lib\images\star-on.png" />
     <Content Include="Plugins\Raty\lib\jquery.raty.css" />
     <Content Include="Plugins\Raty\lib\jquery.raty.js" />
+    <Content Include="Scripts\bootstrap-modal.js" />
+    <Content Include="Scripts\bootstrap-modalmanager.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Plugins\Raty\lib\fonts\raty.eot" />

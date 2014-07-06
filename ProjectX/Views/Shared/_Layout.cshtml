@@ -8,7 +8,6 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
 
     @*<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>*@
-
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAkUFML8LL4ofXmhgLhGuEmjyZUIuQY8J0&amp;sensor=false"></script>
   
     @Styles.Render("~/Content/css")
@@ -20,6 +19,8 @@
     @*    @Scripts.Render("~/Scripts/MapsCustom.js")*@
     @Scripts.Render("~/Scripts/MainCustom.js")
     @Scripts.Render("~/Scripts/markerCluster.js")
+    @Styles.Render("~/Content/bootstrap-modal-bs3patch.css")
+    @Styles.Render("~/Content/bootstrap-modal.css")
     @RenderSection("scripts", required: false)
 </head>
 <body>
@@ -51,7 +52,9 @@
         </div>
         <div id="overlay"></div>
 
-        <div id="Map" class="body-content"></div>
+        <div style="height:30%">
+            <div id="Map" class="body-content"></div>
+        </div>
 
     </div>
     
@@ -91,13 +94,16 @@
 
                 markers.push(marker);
 
-            </text>
+                </text>
             }
             var markerCluster = new MarkerClusterer(map, markers);
         }
 
         carregarPontos();
     </script>
+    @Scripts.Render("~/Scripts/bootstrap-modalmanager.js");
+    @Scripts.Render("~/Scripts/bootstrap-modal.js");
 
 </body>
+
 </html>

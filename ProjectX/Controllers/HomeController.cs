@@ -21,7 +21,7 @@ namespace ProjectX.Controllers
 
                 //var fileName = "Images/" + value + "_" + value2 + ".png" ;
 
-                var fileName = "Images/5_bonita.png";
+                var fileName = "Images/1_pegoBebado.png ";
 
                 placesViewModel = context.LocalSets.Select(i => new PlacesViewModel() 
                                                                         {
