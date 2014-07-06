@@ -18,7 +18,7 @@
 #divTrackQualityResponsive {
     position:absolute;
     bottom:95px;
-    left:100px;
+    left:66px;
 }
 
 #divTrackQuantity {
@@ -30,7 +30,7 @@
 #divTrackQuantityResponsive {
     position:absolute;
     bottom:210px;
-    left:100px;
+    left:66px;
 }
 
 #txtDesc {
@@ -48,8 +48,8 @@
     background-color:white;
     border: 1px solid rgba(0,0,0,0.3);
     resize:none;
-    width:205px ! important;
-    max-width:205px ! important;
+    width:145px ! important;
+    max-width:145px ! important;
     height:70px;
 }
 
@@ -69,8 +69,8 @@
 }
 
 #ddPlaceResponsivo {
-    width:277px ! important;
-    max-width:277px ! important;
+    width:216px ! important;
+    max-width:216px ! important;
 }
 
 #hdnImage {

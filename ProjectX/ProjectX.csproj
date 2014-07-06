@@ -247,6 +247,11 @@
     <Content Include="Images\faces\100.png" />
     <Content Include="Images\faces\faceUn.png" />
     <Content Include="Images\noimage.jpg" />
+    <Content Include="Images\places\2.jpg" />
+    <Content Include="Images\places\3.jpg" />
+    <Content Include="Images\places\4.jpg" />
+    <Content Include="Images\places\5.jpg" />
+    <Content Include="Images\places\6.jpg" />
     <Content Include="Images\search.png" />
     <Content Include="Images\tracker.png" />
     <Content Include="Plugins\Raty\lib\fonts\raty.svg" />
