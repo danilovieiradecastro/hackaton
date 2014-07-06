@@ -45,32 +45,38 @@ namespace ProjectX.Controllers
 
         public int ReturnQuantidadeRoundAvg(decimal avg)
         {
-            int value = (int)Math.Truncate(avg);
-            Dictionary<int, int> avgs = new Dictionary<int, int>();
-            avgs.Add(1, Math.Abs(value - 20));
-            avgs.Add(2, Math.Abs(value - 40));
-            avgs.Add(3, Math.Abs(value - 60));
-            avgs.Add(4, Math.Abs(value - 80));
-            avgs.Add(5, Math.Abs(value - 100));
+            int value = 1;
 
-            var min = avgs.Min(i => i.Value);
+            if (avg < 20)
+                value = 1;
+            else if (avg > 20 && avg < 40)
+                value = 2;
+            else if (avg > 40 && avg < 60)
+                value = 3;
+            else if (avg > 60 && avg < 80)
+                value = 4;
+            else
+                value = 5;
 
-            return avgs.Where(i => i.Value == min).Select(i => i.Key).First();
+            return value;
         }
 
         public string ReturnBelezaRoundAvg(decimal avg)
         {
-            int value = (int)Math.Truncate(avg);
-            Dictionary<string, int> avgs = new Dictionary<string, int>();
-            avgs.Add("capeta", Math.Abs(value - 20));
-            avgs.Add("pegoBebado", Math.Abs(value - 40));
-            avgs.Add("pegavel", Math.Abs(value - 60));
-            avgs.Add("bonita", Math.Abs(value - 80));
-            avgs.Add("princesa", Math.Abs(value - 100));
+            string value = "";
 
-            var min = avgs.Min(i => i.Value);
+            if (avg < 20)
+                value = "capeta";
+            else if (avg > 20 && avg < 40)
+                value = "pegoBebado";
+            else if (avg > 40 && avg < 60)
+                value = "pegavel";
+            else if (avg > 60 && avg < 80)
+                value = "bonita";
+            else
+                value = "princesa";
 
-            return avgs.Where(i => i.Value == min).Select(i => i.Key).First();
+            return value;
         }
 
         public ActionResult About()
