@@ -9,10 +9,27 @@
         $("#hdnPostar").trigger("click");
     });
 
+    $("#btnPostar").bind('touchstart click', function () {
+        $("body").children().remove();
+        $("#hdnAnonimo").val($("#cbAnonimo").is(":checked"));
+        $("#hdnDescricao").val($("#txtDesc").text());
+        $("#hdnLocal").val($("#ddPlace").val());
+
+        $("#hdnPostar").trigger("click");
+    });
+
+    $("#btnPostar").mousedown(function () {
+        $("body").children().remove();
+        $("#hdnAnonimo").val($("#cbAnonimo").is(":checked"));
+        $("#hdnDescricao").val($("#txtDesc").text());
+        $("#hdnLocal").val($("#ddPlace").val());
+
+        $("#hdnPostar").trigger("click");
+    });
+
+
     $("#linkAnexar").click(function () {
-
         $("#hdnImage").trigger("click");
-
     });
 
     $("#hdnImage").change(function () {
